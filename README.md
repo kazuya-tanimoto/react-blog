@@ -514,7 +514,7 @@ yarn add -D simple-git-hooks lint-staged
 +    ]
 +  },
 +  "simple-git-hooks": {
-+    "pre-commit": "npm run lint-staged"
++    "pre-commit": "yarn lint-staged"
 +  }
    ︙
 ```

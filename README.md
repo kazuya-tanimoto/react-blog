@@ -771,12 +771,14 @@ yarn install
 nodeLinker: node-modules
 ```
 
-### setup for testing
+### setup Storybook add-on(chakra-ui, test-runner, a11y)
+- reference
+  - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
 
 - install plugin
 
 ```bash
-yarn add -D @storybook/test-runner
+yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a11y
 ```
 
 - edit `package.json`
@@ -793,50 +795,18 @@ yarn add -D @storybook/test-runner
 +   "sb:test:detail": "test-storybook --verbose"
 ```
 
-### install Chakra UI Storybook addon
-
-- reference
-    - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
-
-- install plugin
-
-```bash
-yarn add -D @chakra-ui/storybook-addon
-```
-
 - edit `.storybook/main.js`
 
 ```diff
    ︙
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-+   "@chakra-ui/storybook-addon",
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-onboarding"),
+    getAbsolutePath("@storybook/addon-interactions"),
++   getAbsolutePath("@chakra-ui/storybook-addon"),
++   getAbsolutePath("@storybook/addon-a11y"),
   ],
-```
-
-### install accessibility addon
-
-- install plugin
-
-```bash
-yarn add -D @storybook/addon-a11y
-```
-
-- edit `.storybook/main.js`
-
-```diff
-   ︙
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-    "@chakra-ui/storybook-addon",
-+   "@storybook/addon-a11y",
-    ],
 ```
 
 ### install Storybook MSW addon
@@ -866,9 +836,9 @@ const preview: Preview = {
 + decorators: [mswDecorator],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
-``f`
+```
 
-### setup Chromatic
+## setup Chromatic
 
 - install plugin
 

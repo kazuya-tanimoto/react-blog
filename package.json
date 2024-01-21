@@ -19,11 +19,13 @@
     "test:run": "vitest run",
     "test:coverage": "vitest --coverage",
     "test:ui": "vitest --ui",
+    "sb": "storybook dev -p 6006",
+    "sb:build": "storybook build",
+    "sb:test": "test-storybook",
+    "sb:test:detail": "test-storybook --verbose",
     "lint-staged": "lint-staged",
     "prepare": "npx simple-git-hooks || :",
-    "preinstall": "npx typesync || :",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "preinstall": "npx typesync || :"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -36,6 +38,8 @@
     "react-router-dom": "^6.21.3"
   },
   "devDependencies": {
+    "@chakra-ui/storybook-addon": "^5.1.0",
+    "@storybook/addon-a11y": "^7.6.10",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.10",
@@ -44,6 +48,7 @@
     "@storybook/react": "^7.6.10",
     "@storybook/react-vite": "^7.6.10",
     "@storybook/test": "^7.6.10",
+    "@storybook/test-runner": "^0.16.0",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@types/eslint": "^8.56.2",

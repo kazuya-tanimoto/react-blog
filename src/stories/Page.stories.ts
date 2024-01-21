@@ -1,5 +1,5 @@
-import { expect, userEvent, within } from "@storybook/test";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 import { Page } from "./Page.tsx";
 
@@ -23,6 +23,7 @@ export const LoggedIn: Story = {
     const canvas = within(canvasElement);
     const loginButton = canvas.getByRole("button", { name: /Log in/i });
     await expect(loginButton).toBeInTheDocument();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await userEvent.click(loginButton);
     await expect(loginButton).not.toBeInTheDocument();
 

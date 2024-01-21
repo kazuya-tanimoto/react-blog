@@ -792,6 +792,7 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 +   "sb": "storybook dev -p 6006",
 +   "sb:build": "storybook build",
 +   "sb:test": "test-storybook",
++   "sb:test:watch": "test-storybook --watch",
 +   "sb:test:detail": "test-storybook --verbose"
 ```
 

@@ -22,6 +22,7 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "sb:test": "test-storybook",
+    "sb:test:watch": "test-storybook --watch",
     "sb:test:detail": "test-storybook --verbose",
     "lint-staged": "lint-staged",
     "prepare": "npx simple-git-hooks || :",

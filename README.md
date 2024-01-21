@@ -364,8 +364,8 @@ yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
    "scripts": {
    ︙
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-+    "format": "prettier --write --loglevel=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
-+    "fix": "npm run --silent format; npm run --silent lint:es:fix",
++   "pretty": "prettier --write --log-level=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
++   "fix": "npm run --silent format; npm run --silent lint:es:fix",
     "preinstall": "npx typesync || :"
    },
 ```

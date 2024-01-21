@@ -56,7 +56,9 @@
 - [Storybook(v7)をVitestで再利用するとき](https://zenn.dev/pluto0004/articles/3bab7d07805cff)
 
 ## create project
+
 - create
+
 ```bash
 yarn create vite react-blog --template=react-ts; react-blog
 ```
@@ -325,6 +327,12 @@ vite.config.ts
 
 ```
 
+- configure Prettier in JetbrainsIDE
+    - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
+    - select `automatic eslint configuration`
+    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx}`
+    - set `Run eslint --fix on save` to `true`
+
 ## setup prettier
 
 - install plugin
@@ -370,12 +378,18 @@ yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
    },
 ```
 
+- configure Prettier in JetbrainsIDE
+    - open `Languages & Frameworks` > `Javascript` > `Prettier`
+    - select `automatic prettier configuration`
+    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
+    - set `Run prettier on save` to `true`
+
 ## setup stylelint (enable CSS in JS linting)
 
 - install plugin
 
 ```bash
-yarn add -D stylelint stylelint-config-standard stylelint-order stylelint-config-recess-order postcss-syntax postcss-jsx postcss-html
+yarn add -D stylelint stylelint-config-standard stylelint-order stylelint-config-recess-order postcss postcss-syntax postcss-jsx postcss-html
 ``` 
 
 - create `.stylelintrc.json`

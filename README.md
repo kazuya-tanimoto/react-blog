@@ -56,10 +56,12 @@
 - [Storybook(v7)をVitestで再利用するとき](https://zenn.dev/pluto0004/articles/3bab7d07805cff)
 
 ## create project
-
+- create
 ```bash
-yarn create vite react-template --template=react-ts
+yarn create vite react-blog --template=react-ts; react-blog
 ```
+
+- change yarn version
 
 ## update packages with npm-check-updates (ncu)
 

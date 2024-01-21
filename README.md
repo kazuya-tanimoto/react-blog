@@ -703,6 +703,26 @@ yarn add react-router-dom
 yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion @chakra-ui/icons
 ```
 
+- edit `main.tsx`
+
+```diff
+import React from 'react'
++ import { ChakraProvider } from "@chakra-ui/react"
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+
+const root = document.getElementById("root");
+root != null &&
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
++     <ChakraProvider>
+        <App />
++     </ChakraProvider>
+    </React.StrictMode>,
+  );
+```
+
 ## setup Storybook
 
 - install plugin

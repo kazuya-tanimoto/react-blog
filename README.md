@@ -731,7 +731,10 @@ root != null &&
 npx storybook@latest init
 ```
 
-### fix dependencies
+### fix dependencies(for yarn v1.x)
+
+- yarn 1.x を使用する場合、yarnのバグにより下記が発生する。
+- yarn stable を使う場合は気にしなくてOK
 
 - Storybook導入に伴い依存性が変更となり、lintでエラーが発生する。そのため、依存性を修正する。
 - 下記は最新VerではCommonJSのエクスポートに対応しておらず、linter側でimportできない為古いバージョンに落とす
@@ -757,13 +760,23 @@ npx storybook@latest init
 yarn install
 ```
 
+### disable PnP(for yarn v2.x+)
+
+- yarn 2.x以降のPnPを利用する場合、npmとの互換性の問題で動作しないプラグイン等がある
+- 互換性は極力維持する為にPnPではなくnode_modulesを利用するように設定する
+
+- create `.yarnrc.yml`
+
+```yaml
+nodeLinker: node-modules
+```
+
 ### setup for testing
 
 - install plugin
 
 ```bash
-yarn add -D @storybook/test-runner @storybook/addon-interactions
-yarn playwright install  
+yarn add -D @storybook/test-runner
 ```
 
 - edit `package.json`

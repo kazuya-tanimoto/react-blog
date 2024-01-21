@@ -490,9 +490,9 @@ yarn add -D simple-git-hooks lint-staged
    ︙
    "scripts": {
    ︙
-    "preinstall": "npx typesync || :"
 +   "lint-staged": "lint-staged",
 +   "prepare": "npx simple-git-hooks || :"
+    "preinstall": "npx typesync || :"
    },
    ︙
   "devDependencies": {
@@ -503,7 +503,7 @@ yarn add -D simple-git-hooks lint-staged
 +    "src/**/*.{js,jsx,ts,tsx}": [
 +      "prettier --write --loglevel=warn",
 +      "eslint --fix --quiet"
-+      "stylelint --fix --quiet"
++      "stylelint --fix --quiet",
 +    ],
 +    "src/**/*.{html,css,less,sass,scss}": [
 +      "prettier --write --loglevel=warn",
@@ -601,7 +601,7 @@ export default defineConfig({
 +   "test:run": "vitest run",
 +   "test:coverage": "vitest --coverage",
 +   "test:ui": "vitest --ui",
-    "preinstall": "npx typesync || :",
+    "lint-staged": "lint-staged",
   },
   "dependencies": {
    ︙
@@ -676,14 +676,15 @@ export function MyComponent() {
 - create `MyComponent.test.tsx`
 
 ```tsx
-import { render, screen } from '@testing-library/react'
-import { MyComponent } from './MyComponent'
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import { MyComponent } from "./MyComponent.tsx";
 
-test('「Hello Test」が描画されている', () => {
-  render(<MyComponent />)
-  screen.debug()
-  expect(screen.getByText('Hello Test')).toBeInTheDocument()
-})
+test("「Hello Test」が描画されている", () => {
+  render(<MyComponent />);
+  // screen.debug();
+  expect(screen.getByText("Hello Test")).toBeInTheDocument();
+});
 ```
 
 ## setup react router

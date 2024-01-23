@@ -813,9 +813,13 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 ### install Storybook MSW addon
 
 - install plugin
+  - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
+    - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
+    - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121) 
 
 ```bash
-yarn add -D msw-storybook-addon
+# yarn add -D msw-storybook-addon
+yarn add msw-storybook-addon@2.0.0--canary.122.b3ed3b1.0
 ```
 
 - initialize addon

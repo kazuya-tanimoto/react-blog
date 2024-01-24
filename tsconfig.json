@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "axe-playwright"
     ],
     /* Bundler mode */
     "moduleResolution": "bundler",

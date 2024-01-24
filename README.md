@@ -778,7 +778,7 @@ nodeLinker: node-modules
 - install plugin
 
 ```bash
-yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a11y
+yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a11y playwright axe-playwright
 ```
 
 - edit `package.json`
@@ -808,6 +808,37 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 +   getAbsolutePath("@chakra-ui/storybook-addon"),
 +   getAbsolutePath("@storybook/addon-a11y"),
   ],
+```
+
+- edit `tsconfig.json`
+
+```diff
+   ︙
+    "types": [
+      "vitest/globals",
++     "axe-playwright"
+    ],
+   ︙
+ ```
+
+- create `test-runner.ts`
+    
+```ts
+import { Page } from "playwright";
+import { checkA11y, injectAxe } from "axe-playwright";
+
+export const preVisit = async (page: Page): Promise<void> => {
+  await injectAxe(page);
+};
+
+export const postVisit = async (page: Page): Promise<void> => {
+  await checkA11y(page, "#storybook-root", {
+    detailedReport: true,
+    detailedReportOptions: {
+      html: true
+    }
+  });
+};
 ```
 
 ### install Storybook MSW addon

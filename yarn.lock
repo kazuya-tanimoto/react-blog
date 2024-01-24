@@ -5997,6 +5997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/junit-report-builder@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "@types/junit-report-builder@npm:3.0.2"
+  checksum: 3848c5247a57597695c86ab7a80cf64ba0bfcbc39e067e9e2e051eea80608a95261de065298aaaaee795b137b076f5ab3acb4e3ba003ee637a9dfd9715f86456
+  languageName: node
+  linkType: hard
+
 "@types/lint-staged@npm:^13.3.0":
   version: 13.3.0
   resolution: "@types/lint-staged@npm:13.3.0"
@@ -7166,10 +7173,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.2.0":
+"axe-core@npm:^4.2.0, axe-core@npm:^4.5.1":
   version: 4.8.3
   resolution: "axe-core@npm:4.8.3"
   checksum: 762392d03e49b5613e0d58c19bfe0bb0df253a56d6296b07d6d968729acef4ad25822e560f067c563368ac52a62c48cb341e6940b58252ca573334cd74cf8622
+  languageName: node
+  linkType: hard
+
+"axe-html-reporter@npm:2.2.3":
+  version: 2.2.3
+  resolution: "axe-html-reporter@npm:2.2.3"
+  dependencies:
+    mustache: "npm:^4.0.1"
+    rimraf: "npm:^3.0.2"
+  peerDependencies:
+    axe-core: ">=3"
+  checksum: f875c62a9ce94365bb28318239cbe6e7bbdadbee13ccc8ffa5b9acbd563399701028dd4433928f9381993772cac9df20e1a8600220991bf3f1b175b631614f92
+  languageName: node
+  linkType: hard
+
+"axe-playwright@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "axe-playwright@npm:2.0.1"
+  dependencies:
+    "@types/junit-report-builder": "npm:^3.0.0"
+    axe-core: "npm:^4.5.1"
+    axe-html-reporter: "npm:2.2.3"
+    junit-report-builder: "npm:^3.0.1"
+    picocolors: "npm:^1.0.0"
+  peerDependencies:
+    playwright: ">1.0.0"
+  checksum: 169b02a1c0732ba71187de1f71ba97f208e42d5c81c631841b817591e291c494715d548ffca0ed13ba5f46c6b9707400153cf63dbc15277c8944cc19ba84565a
   languageName: node
   linkType: hard
 
@@ -8249,6 +8283,13 @@ __metadata:
     whatwg-mimetype: "npm:^4.0.0"
     whatwg-url: "npm:^14.0.0"
   checksum: 1b894d7d41c861f3a4ed2ae9b1c3f0909d4575ada02e36d3d3bc584bdd84278e20709070c79c3b3bff7ac98598cb191eb3e86a89a79ea4ee1ef360e1694f92ad
+  languageName: node
+  linkType: hard
+
+"date-format@npm:4.0.3":
+  version: 4.0.3
+  resolution: "date-format@npm:4.0.3"
+  checksum: be940a4c0f35875cd9df1b160531e9bbb447c4d8d2817b4b110f79c109018b4a1c0d4676ef756694bcf2e7f103f0893ff53c814896ec42e3b7390bb16b299f6f
   languageName: node
   linkType: hard
 
@@ -12308,6 +12349,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"junit-report-builder@npm:^3.0.1":
+  version: 3.1.0
+  resolution: "junit-report-builder@npm:3.1.0"
+  dependencies:
+    date-format: "npm:4.0.3"
+    lodash: "npm:^4.17.21"
+    make-dir: "npm:^3.1.0"
+    xmlbuilder: "npm:^15.1.1"
+  checksum: fbb5f89143dcadc95cd886550bdc6602d3210c43b86841cbd088cc7bb7e4cb2629b2775d966579394d320c5de56221a07254dcef2002963b015dcff44e4ec64d
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.3, keyv@npm:^4.5.4":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -12626,7 +12679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2":
+"make-dir@npm:^3.0.0, make-dir@npm:^3.0.2, make-dir@npm:^3.1.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
@@ -13063,6 +13116,15 @@ __metadata:
   bin:
     msw: cli/index.js
   checksum: d28519ae0e523cc14690916059da2568da8478b90cf3b47928c7372f2a18c9abdeb7dcc95f7c5ffc44baedf0f08276d16fd7d5465ad20316200bc79b4fc74390
+  languageName: node
+  linkType: hard
+
+"mustache@npm:^4.0.1":
+  version: 4.2.0
+  resolution: "mustache@npm:4.2.0"
+  bin:
+    mustache: bin/mustache
+  checksum: 1f8197e8a19e63645a786581d58c41df7853da26702dbc005193e2437c98ca49b255345c173d50c08fe4b4dbb363e53cb655ecc570791f8deb09887248dd34a2
   languageName: node
   linkType: hard
 
@@ -13824,7 +13886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.14.0":
+"playwright@npm:^1.14.0, playwright@npm:^1.41.1":
   version: 1.41.1
   resolution: "playwright@npm:1.41.1"
   dependencies:
@@ -14242,6 +14304,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.2.1"
     "@vitest/coverage-v8": "npm:^1.2.1"
     "@vitest/ui": "npm:^1.2.1"
+    axe-playwright: "npm:^2.0.1"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-config-standard-with-typescript: "npm:^43.0.1"
@@ -14260,6 +14323,7 @@ __metadata:
     lint-staged: "npm:^15.2.0"
     msw: "npm:^2.1.3"
     msw-storybook-addon: "npm:2.0.0--canary.122.b3ed3b1.0"
+    playwright: "npm:^1.41.1"
     postcss: "npm:^8.4.33"
     postcss-html: "npm:^1.6.0"
     postcss-jsx: "npm:^0.36.4"
@@ -17236,6 +17300,13 @@ __metadata:
   version: 1.0.1
   resolution: "xml@npm:1.0.1"
   checksum: 04bcc9b8b5e7b49392072fbd9c6b0f0958bd8e8f8606fee460318e43991349a68cbc5384038d179ff15aef7d222285f69ca0f067f53d071084eb14c7fdb30411
+  languageName: node
+  linkType: hard
+
+"xmlbuilder@npm:^15.1.1":
+  version: 15.1.1
+  resolution: "xmlbuilder@npm:15.1.1"
+  checksum: 665266a8916498ff8d82b3d46d3993913477a254b98149ff7cff060d9b7cc0db7cf5a3dae99aed92355254a808c0e2e3ec74ad1b04aa1061bdb8dfbea26c18b8
   languageName: node
   linkType: hard
 

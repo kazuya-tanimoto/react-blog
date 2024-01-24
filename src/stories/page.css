@@ -2,10 +2,10 @@
   max-width: 600px;
   padding: 48px 20px;
   margin: 0 auto;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
-  color: #333;
+  color: #000;
 }
 
 .storybook-page h2 {
@@ -22,7 +22,7 @@
 }
 
 .storybook-page a {
-  color: #1ea7fd;
+  color: #0a6eb0;
   text-decoration: none;
 }
 
@@ -42,7 +42,7 @@
   font-size: 11px;
   font-weight: 700;
   line-height: 12px;
-  color: #66bf3c;
+  color: #000;
   vertical-align: top;
   background: #e7fdd8;
   border-radius: 1em;

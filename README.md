@@ -884,10 +884,35 @@ yarn add -D chromatic
 
 - Sign in and [create a new project](https://www.chromatic.com/docs/setup/) and grab your project-token.
 
+- edit `package.json`
+
+```diff
+   ︙
+ "scripts": {
+   "sb:test:detail": "test-storybook --verbose",
++  "build-storybook": "storybook build",
+   ︙
+ ```
+
 - first run
 
 ```bash
 npx chromatic --project-token=<project-token>
+```
+```bash
+⚠ No 'chromatic' script found in your package.json
+Would you like me to add it for you? [y/N]y
+```
+
+- add `.env`
+```
+CHROMATIC_PROJECT_TOKEN=<project-token>
+```
+
+- edit `.gitingore`
+```
++ storybook-static/*
++ .env
 ```
 
 ## make directory structure

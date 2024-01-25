@@ -24,7 +24,9 @@
     "sb:test": "test-storybook",
     "sb:test:watch": "test-storybook --watch",
     "sb:test:detail": "test-storybook --verbose",
+    "build-storybook": "storybook build",
     "lint-staged": "lint-staged",
+    "chromatic": "chromatic",
     "prepare": "npx simple-git-hooks || :",
     "preinstall": "npx typesync || :"
   },
@@ -64,6 +66,7 @@
     "@vitest/coverage-v8": "^1.2.1",
     "@vitest/ui": "^1.2.1",
     "axe-playwright": "^2.0.1",
+    "chromatic": "^10.5.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.1",

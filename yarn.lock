@@ -1517,15 +1517,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bundled-es-modules/js-levenshtein@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@bundled-es-modules/js-levenshtein@npm:2.0.1"
-  dependencies:
-    js-levenshtein: "npm:^1.1.6"
-  checksum: 9c9a794a8f1412fe9f285a20aa38b91933ab1879e905be29acc4898932f245d20819e0fad04012d743eabb24ed153533a0deb1f9b46816aafe426db18042a9ae
-  languageName: node
-  linkType: hard
-
 "@bundled-es-modules/statuses@npm:^1.0.1":
   version: 1.0.1
   resolution: "@bundled-es-modules/statuses@npm:1.0.1"
@@ -3784,9 +3775,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/interceptors@npm:^0.25.14":
-  version: 0.25.14
-  resolution: "@mswjs/interceptors@npm:0.25.14"
+"@mswjs/interceptors@npm:^0.25.15":
+  version: 0.25.15
+  resolution: "@mswjs/interceptors@npm:0.25.15"
   dependencies:
     "@open-draft/deferred-promise": "npm:^2.2.0"
     "@open-draft/logger": "npm:^0.3.0"
@@ -3794,7 +3785,7 @@ __metadata:
     is-node-process: "npm:^1.2.0"
     outvariant: "npm:^1.2.1"
     strict-event-emitter: "npm:^0.5.1"
-  checksum: 4cb1678348134e0ed3d9aa40d3b8d4eb96f319ef888aeafdc023a29917f39684e93016d2ab416dffe702c47a9dcbe62ba7e488eff35302a943dfe621264f0d01
+  checksum: 518e259586acf32d68618d19e7129c5a2b8c51c922cbbc946f48cf0210cab41d46644d8ea5155c715568ba11e3947ba4fadea5b4656250a809f7c6619f0000d1
   languageName: node
   linkType: hard
 
@@ -4782,16 +4773,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-onboarding@npm:^1.0.10":
-  version: 1.0.10
-  resolution: "@storybook/addon-onboarding@npm:1.0.10"
+"@storybook/addon-onboarding@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@storybook/addon-onboarding@npm:1.0.11"
   dependencies:
     "@storybook/telemetry": "npm:^7.1.0"
     react-confetti: "npm:^6.1.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 4ee04976e9adcf73d9b3645b766e39ba19e34144c05348b63390719cdf77f79fe9e44da45af2cd61849940427c1c553563165d57511e54e1bf26fb3817ec53dc
+  checksum: ca3de3eb85fb6d04309dbc07c26956777c064bb5032fb99aca3e43361b0816ac4326183aac99204d795fdc2010aa69c4978353c70a42926e9da0819343fcd2a0
   languageName: node
   linkType: hard
 
@@ -5664,9 +5655,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "@testing-library/jest-dom@npm:6.2.1"
+"@testing-library/jest-dom@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "@testing-library/jest-dom@npm:6.3.0"
   dependencies:
     "@adobe/css-tools": "npm:^4.3.2"
     "@babel/runtime": "npm:^7.9.2"
@@ -5693,7 +5684,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: ade94aa06af3910e471f4728f300518f662fc745e95d158a6edf51223ad75b64e7a92714976bd8ab75ddc8b4b733dc53ece7f709a5ceeb365844b00ee1c4ff68
+  checksum: 38ef0dc054b90b253015adaa16828046b1eff8137b86506d5233c10c85a8d8516d55dddb0af5ada46ef98ce9d9bbdad94de42acd29ed07adfb2924fc7bfc6429
   languageName: node
   linkType: hard
 
@@ -5962,13 +5953,6 @@ __metadata:
   dependencies:
     "@types/istanbul-lib-report": "npm:*"
   checksum: 1647fd402aced5b6edac87274af14ebd6b3a85447ef9ad11853a70fd92a98d35f81a5d3ea9fcb5dbb5834e800c6e35b64475e33fcae6bfa9acc70d61497c54ee
-  languageName: node
-  linkType: hard
-
-"@types/js-levenshtein@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@types/js-levenshtein@npm:1.1.3"
-  checksum: 025f2bd8d865cfa7a996799a1a2f2a77fa2fc74a28971aa035a103de35d7c1e3d949721a88f57fdb532815bbcb2bf7019196a608ed0a8bbd1023d64c52bb251b
   languageName: node
   linkType: hard
 
@@ -7767,9 +7751,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^10.5.0":
-  version: 10.5.0
-  resolution: "chromatic@npm:10.5.0"
+"chromatic@npm:^10.5.2":
+  version: 10.5.2
+  resolution: "chromatic@npm:10.5.2"
   peerDependencies:
     chromatic-cypress: ^0.4.0 || ^1.0.0
     chromatic-playwright: ^0.4.0 || ^1.0.0
@@ -7782,7 +7766,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 8ccaafb5e976af01cf55bc66649ba5d7be42bc2ae257a8840722c48a637596d0b835af091c72597eac5d9be234aacfbb535388899ffebf8a66a94913df73372e
+  checksum: 5966da6ce6cbed2e7ba133ef091942e7e6928a6870a2197cb49663bfc2d6aa6abb55b098aafad6c15008d62167425a2c38b6efad72fa4a54137aae06308c709f
   languageName: node
   linkType: hard
 
@@ -10132,9 +10116,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^10.18.0":
-  version: 10.18.0
-  resolution: "framer-motion@npm:10.18.0"
+"framer-motion@npm:^11.0.3":
+  version: 11.0.3
+  resolution: "framer-motion@npm:11.0.3"
   dependencies:
     "@emotion/is-prop-valid": "npm:^0.8.2"
     tslib: "npm:^2.4.0"
@@ -10149,7 +10133,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 0aea1b3dc5cf06687e31f3b6c0b6b1a2cd070afdd4a9d38ebf15715c662ca1d6d1c25e6778695e5ebff37a6ce92b031d036c02570370e6057e66aa9de9f9370f
+  checksum: a9a70196ea5d264f749a7dea1ccb7c33decf969680a907c595eb48d84510b60fb51e3e0d16d5bcac0997eea041f796f2cba4a5505e0a00f373ffbadfb5f36564
   languageName: node
   linkType: hard
 
@@ -12150,13 +12134,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-levenshtein@npm:^1.1.6":
-  version: 1.1.6
-  resolution: "js-levenshtein@npm:1.1.6"
-  checksum: 14045735325ea1fd87f434a74b11d8a14380f090f154747e613529c7cff68b5ee607f5230fa40665d5fb6125a3791f4c223f73b9feca754f989b059f5c05864f
-  languageName: node
-  linkType: hard
-
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -13102,18 +13079,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "msw@npm:2.1.3"
+"msw@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "msw@npm:2.1.5"
   dependencies:
     "@bundled-es-modules/cookie": "npm:^2.0.0"
-    "@bundled-es-modules/js-levenshtein": "npm:^2.0.1"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
     "@mswjs/cookies": "npm:^1.1.0"
-    "@mswjs/interceptors": "npm:^0.25.14"
+    "@mswjs/interceptors": "npm:^0.25.15"
     "@open-draft/until": "npm:^2.1.0"
     "@types/cookie": "npm:^0.6.0"
-    "@types/js-levenshtein": "npm:^1.1.3"
     "@types/statuses": "npm:^2.0.4"
     chalk: "npm:^4.1.2"
     chokidar: "npm:^3.4.2"
@@ -13121,7 +13096,6 @@ __metadata:
     headers-polyfill: "npm:^4.0.2"
     inquirer: "npm:^8.2.0"
     is-node-process: "npm:^1.2.0"
-    js-levenshtein: "npm:^1.1.6"
     outvariant: "npm:^1.4.2"
     path-to-regexp: "npm:^6.2.0"
     strict-event-emitter: "npm:^0.5.1"
@@ -13134,7 +13108,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: d28519ae0e523cc14690916059da2568da8478b90cf3b47928c7372f2a18c9abdeb7dcc95f7c5ffc44baedf0f08276d16fd7d5465ad20316200bc79b4fc74390
+  checksum: ed1be6ee2863a5ff598f8fcd6f6497b1ba8c1310083afc220eca46b29b22bbfcd848f421cfbaac7aa7ff5f11fb2eaeae00f0a0fb4c3b912a1477c50e74e92e9f
   languageName: node
   linkType: hard
 
@@ -14304,13 +14278,13 @@ __metadata:
     "@storybook/addon-essentials": "npm:^7.6.10"
     "@storybook/addon-interactions": "npm:^7.6.10"
     "@storybook/addon-links": "npm:^7.6.10"
-    "@storybook/addon-onboarding": "npm:^1.0.10"
+    "@storybook/addon-onboarding": "npm:^1.0.11"
     "@storybook/blocks": "npm:^7.6.10"
     "@storybook/react": "npm:^7.6.10"
     "@storybook/react-vite": "npm:^7.6.10"
     "@storybook/test": "npm:^7.6.10"
     "@storybook/test-runner": "npm:^0.16.0"
-    "@testing-library/jest-dom": "npm:^6.2.1"
+    "@testing-library/jest-dom": "npm:^6.3.0"
     "@testing-library/react": "npm:^14.1.2"
     "@types/eslint": "npm:^8.56.2"
     "@types/eslint-config-prettier": "npm:^6.11.3"
@@ -14324,7 +14298,7 @@ __metadata:
     "@vitest/coverage-v8": "npm:^1.2.1"
     "@vitest/ui": "npm:^1.2.1"
     axe-playwright: "npm:^2.0.1"
-    chromatic: "npm:^10.5.0"
+    chromatic: "npm:^10.5.2"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-config-standard-with-typescript: "npm:^43.0.1"
@@ -14338,10 +14312,10 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.5"
     eslint-plugin-storybook: "npm:^0.6.15"
     eslint-plugin-testing-library: "npm:^6.2.0"
-    framer-motion: "npm:^10.18.0"
+    framer-motion: "npm:^11.0.3"
     jsdom: "npm:^24.0.0"
     lint-staged: "npm:^15.2.0"
-    msw: "npm:^2.1.3"
+    msw: "npm:^2.1.5"
     msw-storybook-addon: "npm:2.0.0--canary.122.b3ed3b1.0"
     playwright: "npm:^1.41.1"
     postcss: "npm:^8.4.33"

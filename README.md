@@ -744,11 +744,15 @@ yarn create playwright
 -   - uses: actions/setup-node@v3
 -     with:
 -       node-version: 18
+-   - name: Install dependencies
+-     run: npm install -g yarn && yarn
 +   - uses: actions/checkout@v4
-+   - run: corepack enable
 +   - uses: actions/setup-node@v4
 +     with:
 +       node-version: 20
++   - run: corepack enable
++   - name: Install dependencies
++     run: yarn
 ```
 
 ## setup Storybook

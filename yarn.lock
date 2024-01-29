@@ -3880,6 +3880,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:^1.41.1":
+  version: 1.41.1
+  resolution: "@playwright/test@npm:1.41.1"
+  dependencies:
+    playwright: "npm:1.41.1"
+  bin:
+    playwright: cli.js
+  checksum: 72bd5bb67c512027d214b9c54c2a22a469bd19d7809771e53a5bfdcc11330591e01579bb22f807d1ebbcdcea35d625e0fc9eb9791cebcc63bf55b82dd1cdefdd
+  languageName: node
+  linkType: hard
+
 "@polka/url@npm:^1.0.0-next.24":
   version: 1.0.0-next.24
   resolution: "@polka/url@npm:1.0.0-next.24"
@@ -6071,6 +6082,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: bb50ba373053869da1ec43cbcd824626262b984467992e6b2119613fc02f4c0c5aae43550ee66316dd428178727fe51c749ca030b31615332ecbac4572edae4a
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.11.6":
+  version: 20.11.6
+  resolution: "@types/node@npm:20.11.6"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 922bc1e78076bb79fd168902c80321b54487181e3be3386e183fc535d102d91c8902da25148eaec841410fab7fb872fd4a93ec9ac9299cedf0ebcbf16b442aa1
   languageName: node
   linkType: hard
 
@@ -13879,7 +13899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.14.0, playwright@npm:^1.41.1":
+"playwright@npm:1.41.1, playwright@npm:^1.14.0, playwright@npm:^1.41.1":
   version: 1.41.1
   resolution: "playwright@npm:1.41.1"
   dependencies:
@@ -14274,6 +14294,7 @@ __metadata:
     "@chakra-ui/storybook-addon": "npm:^5.1.0"
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
+    "@playwright/test": "npm:^1.41.1"
     "@storybook/addon-a11y": "npm:^7.6.10"
     "@storybook/addon-essentials": "npm:^7.6.10"
     "@storybook/addon-interactions": "npm:^7.6.10"
@@ -14290,6 +14311,7 @@ __metadata:
     "@types/eslint-config-prettier": "npm:^6.11.3"
     "@types/jsdom": "npm:^21.1.6"
     "@types/lint-staged": "npm:^13.3.0"
+    "@types/node": "npm:^20.11.6"
     "@types/react": "npm:^18.2.48"
     "@types/react-dom": "npm:^18.2.18"
     "@typescript-eslint/eslint-plugin": "npm:^6.19.1"

@@ -723,6 +723,19 @@ root != null &&
   );
 ```
 
+## setup Playwright
+- install plugin
+
+```bash
+yarn create playwright
+```
+```bash
+✔ Where to put your end-to-end tests? · tests
+✔ Add a GitHub Actions workflow? (y/N) · true
+✔ Install Playwright browsers (can be done manually via 'yarn playwright install')? (Y/n) · true
+```
+
+
 ## setup Storybook
 
 - install plugin

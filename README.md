@@ -735,6 +735,21 @@ yarn create playwright
 ✔ Install Playwright browsers (can be done manually via 'yarn playwright install')? (Y/n) · true
 ```
 
+### Enable corepack on GitHub Actions
+- edit `.github/workflows/playwright.yml`
+
+```diff
+   ︙
+-   - uses: actions/checkout@v3
+-   - uses: actions/setup-node@v3
+-     with:
+-       node-version: 18
++   - uses: actions/checkout@v4
++   - run: corepack enable
++   - uses: actions/setup-node@v4
++     with:
++       node-version: 20
+```
 
 ## setup Storybook
 

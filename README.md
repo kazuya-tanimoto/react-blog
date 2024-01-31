@@ -1037,6 +1037,13 @@ jobs:
           path: playwright-report/
           retention-days: 30
 ```
+
+- Set the `CHROMATIC_PROJECT_TOKEN` secret in the repository settings.
+  - `Settings` > `Secrets and variables` > `Actions` > `Secrets` > `New repository secret`
+    - Name: `CHROMATIC_PROJECT_TOKEN`
+    - Secret: `<project-token>`
+  - `Add secret`
+
 ## make directory structure
 
 - make directories

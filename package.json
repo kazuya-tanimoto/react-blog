@@ -7,13 +7,13 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:style": "stylelint 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-    "lint:style:fix": "stylelint --fix 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
+    "lint:es": "eslint '{src,tests}/**/*.{js,jsx,ts,tsx}'",
+    "lint:es:fix": "eslint --fix '{src,tests}/**/*.{js,jsx,ts,tsx}'",
+    "lint:style": "stylelint '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
+    "lint:style:fix": "stylelint --fix '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
     "lint": "npm run --silent lint:style; npm run --silent lint:es",
     "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
-    "pretty": "prettier --write --log-level=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
+    "pretty": "prettier --write --log-level=warn  '{src,tests}/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
     "fix": "npm run --silent format; npm run --silent lint:fix",
     "test": "vitest",
     "test:run": "vitest run",
@@ -104,20 +104,20 @@
     "vitest": "^1.2.1"
   },
   "lint-staged": {
-    "src/**/*.{js,ts}": [
+    "{src,tests}/**/*.{js,ts}": [
       "prettier --write --loglevel=warn",
       "eslint --fix --quiet"
     ],
-    "src/**/*.{jsx,tsx}": [
+    "{src,tests}/**/*.{jsx,tsx}": [
       "prettier --write --loglevel=warn",
       "eslint --fix --quiet",
       "stylelint --fix --quiet"
     ],
-    "src/**/*.{html,css,less,sass,scss}": [
+    "{src,tests}/**/*.{html,css,less,sass,scss}": [
       "prettier --write --loglevel=warn",
       "stylelint --fix --quiet"
     ],
-    "src/**/*.{json,gql,graphql}": [
+    "{src,tests}/**/*.{json,gql,graphql}": [
       "prettier --write --loglevel=warn"
     ]
   },

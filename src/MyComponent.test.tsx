@@ -1,12 +1,13 @@
-// @vitest-environment jsdom
-import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
-import { expect, test } from "vitest";
 import { MyComponent } from "./MyComponent.tsx";
 
 test("「Hello Test」が描画されている", () => {
   render(<MyComponent />);
   // screen.debug();
-  /* eslint-disable-next-line @typescript-eslint/no-unsafe-call */
-  expect(screen.getByText("Hello Test")).toBeInTheDocument();
+  const element = screen.getByText("Hello Test");
+  // const element2 = screen.queryByText("Hello Test");
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  expect(element).toBeInTheDocument();
+  // expect(screen.getByText("Hello Test")).toBeInTheDocument();
+  // expect(screen.queryByText("Hello Test")).toBeInTheDocument();
 });

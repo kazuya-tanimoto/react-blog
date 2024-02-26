@@ -7,7 +7,7 @@
 - [Tutorial v6.14.1 | React Router](https://reactrouter.com/en/main/start/tutorial)
 
 ### vitest
-
+- [Configuring Vitest | Vitest](https://vitest.dev/config/#environment)
 - [Vite + React + TypeScript に テスト環境 Vitest をステップbyステップで作る](https://zenn.dev/longbridge/articles/9d9ec773cb3814)
 - [Vitest テストの方法](https://zenn.dev/longbridge/scraps/c3c01b1c03f5da)
 - [Vitest に移行](https://zenn.dev/sa2knight/articles/migrating_vitest_from_jest)

@@ -10,8 +10,6 @@
 
 - [Vite + React + TypeScript に テスト環境 Vitest をステップbyステップで作る](https://zenn.dev/longbridge/articles/9d9ec773cb3814)
 - [Vitest テストの方法](https://zenn.dev/longbridge/scraps/c3c01b1c03f5da)
-- [Vitest に移行](https://zenn.dev/sa2knight/articles/migrating_vitest_from_jest)
-- [Vitest でESLintのエラーが発生する対応](https://github.com/vitest-dev/vitest/issues/4543)
 
 ### jest + testing-library
 
@@ -36,7 +34,7 @@
 - [StorybookをReact, Typescriptな環境に導入する - RoadMovie](https://tech-mr-myself.hatenablog.com/entry/2020/02/05/214226)
 - [React + TypeScript: Storybookを使ってみる - Qiita](https://qiita.com/FumioNonaka/items/7394f96f7d0090f2b10c)
 - [Storybook Tutorials](https://storybook.js.org/tutorials/intro-to-storybook/react/ja/get-started/)
-  - 古いVerかつNo-TypeScriptなのであくまで参考程度
+    - 古いVerかつNo-TypeScriptなのであくまで参考程度
 - [React/Next.jsでAtomic Designを導入する初心者がとりあえず読む記事](https://zenn.dev/hisachii/articles/2544d6ea10033d#chakra-ui)
 - [Storybookを導入する際にやるべきこと3選](https://zenn.dev/sum0/articles/9463d16d9d40e2)
 - [Component Story Format 3.0](https://storybook.js.org/blog/component-story-format-3-0/)
@@ -329,11 +327,11 @@ vite.config.ts
 
 ```
 
-- configure ESLint in JetbrainsIDE
-  - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
-  - select `automatic eslint configuration`
-    - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
-  - set `Run eslint --fix on save` to `true`
+- configure Prettier in JetbrainsIDE
+    - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
+    - select `automatic eslint configuration`
+    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx}`
+    - set `Run eslint --fix on save` to `true`
 
 ## setup prettier
 
@@ -355,7 +353,7 @@ yarn add -D prettier eslint-config-prettier
 ```
 
 - create `.prettierrc.json`
-  - use prettier default setting
+    - use prettier default setting
 
 ```json
 {}
@@ -381,10 +379,10 @@ yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
 ```
 
 - configure Prettier in JetbrainsIDE
-  - open `Languages & Frameworks` > `Javascript` > `Prettier`
-  - select `automatic prettier configuration`
-  - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
-  - set `Run prettier on save` to `true`
+    - open `Languages & Frameworks` > `Javascript` > `Prettier`
+    - select `automatic prettier configuration`
+    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
+    - set `Run prettier on save` to `true`
 
 ## setup stylelint (enable CSS in JS linting)
 
@@ -449,34 +447,34 @@ yarn add -D stylelint stylelint-config-standard stylelint-order stylelint-config
    },
 ```
 
-- ~~configure Stylelint in JetbrainsIDE~~(unneeded)
-  - ~~open `Languages & Frameworks` > `Style Sheets` > `Stylelint`~~
-  - ~~set `Enable` to `true`~~
-  - ~~set `Run for the following file` to `{**/*,*}.{html,css,less,sass,scss,jsx,tsx}`~~
+- configure Stylelint in JetbrainsIDE
+    - open `Languages & Frameworks` > `Style Sheets` > `Stylelint`
+    - set `Enable` to `true`
+    - set `Run for the following file` to `{**/*,*}.{html,css,less,sass,scss,jsx,tsx}`
 
 - configure file watcher in JetbrainsIDE(for CSS)
-  - open `Preferences` > `Tools` > `File Watchers`
-  - add new `lint-css` watcher
-  - set `Filet Type` to `css`
-  - set `Program` to `yarn`
-  - set `Arguments` to `stylelint --fix $FilePath$`
-  - set `Output paths to refresh` to None
-  - set `Working directory` to `$ProjectFileDir$`
-  - set `Advanced Options` > All Options to `false`
-  - set `Display console` to `On Error`
-  - Add the same settings for `less, sass, scss`
+    - open `Preferences` > `Tools` > `File Watchers`
+    - add new `lint-css` watcher
+    - set `Filet Type` to `css`
+    - set `Program` to `yarn`
+    - set `Arguments` to `stylelint --fix $FilePath$`
+    - set `Output paths to refresh` to None
+    - set `Working directory` to `$ProjectFileDir$`
+    - set `Advanced Options` > All Options to `false`
+    - set `Display console` to `On Error`
+    - Add the same settings for `less, sass, scss`
 
 - configure file watcher in JetbrainsIDE(for CSS in JS)
-  - open `Preferences` > `Tools` > `File Watchers`
-  - add new `lint-css-in-jsx` watcher
-  - set `Filet Type` to `React JSX`
-  - set `Program` to `yarn`
-  - set `Arguments` to `stylelint --fix $FilePath$`
-  - set `Output paths to refresh` to None
-  - set `Working directory` to `$ProjectFileDir$`
-  - set `Advanced Options` > All Options to `false`
-  - set `Display console` to `On Error`
-  - Add the same settings for `tsx`
+    - open `Preferences` > `Tools` > `File Watchers`
+    - add new `lint-css-in-jsx` watcher
+    - set `Filet Type` to `React JSX`
+    - set `Program` to `yarn`
+    - set `Arguments` to `stylelint --fix $FilePath$`
+    - set `Output paths to refresh` to None
+    - set `Working directory` to `$ProjectFileDir$`
+    - set `Advanced Options` > All Options to `false`
+    - set `Display console` to `On Error`
+    - Add the same settings for `tsx`
 
 ## setup simple-git-hooks & lint-staged
 
@@ -757,84 +755,6 @@ yarn create playwright
 +     run: yarn
 ```
 
-### exclude e2e test from vitest
-- add `vitest.config.ts`
-```typescript
-export default defineConfig({
-  test: {
-    include: ['src/**/*.{test,spec}.ts?(x)'],
-  }
-})
-```
-- edit `tsconfig.json`
-```diff
-   ︙
-  "include": [
-    "src",
-+   "tests"
-  ],
-   ︙
-```
-
-- edit `MyComponent.test.tsx`
-```diff
-+// @vitest-environment jsdom
--import "@testing-library/jest-dom";
-+import "@testing-library/jest-dom/vitest";
- import { render, screen } from "@testing-library/react";
-+import { expect, test } from "vitest";
- import { MyComponent } from "./MyComponent.tsx";
-```
-
-- edit `package.json`
-
-```diff
-   ︙
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
--   "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
--   "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
--   "lint:style": "stylelint 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
--   "lint:style:fix": "stylelint --fix 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-+   "lint:es": "eslint '{src,tests}/**/*.{js,jsx,ts,tsx}'",
-+   "lint:es:fix": "eslint --fix '{src,tests}/**/*.{js,jsx,ts,tsx}'",
-+   "lint:style": "stylelint '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-+   "lint:style:fix": "stylelint --fix '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-       "lint": "npm run --silent lint:style; npm run --silent lint:es",
-    "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
-    "pretty": "prettier --write --log-level=warn  '{src,tests}/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
-    "fix": "npm run --silent format; npm run --silent lint:fix",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest --coverage",
-   ︙
-  "lint-staged": {
--   "src/**/*.{js,ts}": [
-+   "{src,tests}/**/*.{js,ts}": [
-      "prettier --write --loglevel=warn",
-      "eslint --fix --quiet"
-    ],
--   "src/**/*.{jsx,tsx}": [
-+   "{src,tests}/**/*.{jsx,tsx}": [
-      "prettier --write --loglevel=warn",
-      "eslint --fix --quiet",
-      "stylelint --fix --quiet"
-    ],
--   "src/**/*.{html,css,less,sass,scss}": [
-+   "{src,tests}/**/*.{html,css,less,sass,scss}": [
-      "prettier --write --loglevel=warn",
-      "stylelint --fix --quiet"
-    ],
--   "src/**/*.{json,gql,graphql}": [
-+   "{src,tests}/**/*.{json,gql,graphql}": [
-      "prettier --write --loglevel=warn"
-    ]
-   ︙
-```
-
-
 ## setup Storybook
 
 - install plugin
@@ -850,10 +770,10 @@ npx storybook@latest init
 
 - Storybook導入に伴い依存性が変更となり、lintでエラーが発生する。そのため、依存性を修正する。
 - 下記は最新VerではCommonJSのエクスポートに対応しておらず、linter側でimportできない為古いバージョンに落とす
-  - string-width
-  - strip-ansi
+    - string-width
+    - strip-ansi
 - 下記はpostcss-syntaxとpostcssのバージョン不整合が問題?
-  - stylelint/postcss
+    - stylelint/postcss
 
 - edit `package.json`
 
@@ -934,7 +854,7 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
  ```
 
 - create `test-runner.ts`
-
+    
 ```ts
 import { Page } from "playwright";
 import { checkA11y, injectAxe } from "axe-playwright";
@@ -958,7 +878,7 @@ export const postVisit = async (page: Page): Promise<void> => {
 - install plugin
   - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
     - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
-    - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121)
+    - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121) 
 
 ```bash
 # yarn add -D msw-storybook-addon

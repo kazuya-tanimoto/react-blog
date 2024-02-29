@@ -18,8 +18,8 @@
   "overrides": [
     {
       "files": [
-        "src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-        "src/**/*.{test,spec}.{js,jsx,ts,tsx}"
+        "{src,tests}/**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "{src,tests}/**/*.{test,spec}.{js,jsx,ts,tsx}"
       ],
       "extends": [
         "plugin:jest-dom/recommended",

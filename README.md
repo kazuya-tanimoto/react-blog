@@ -8,6 +8,7 @@
 
 ### vitest
 
+- [Managing Vitest config file | Vitest](https://vitest.dev/config/file.html)
 - [Vite + React + TypeScript に テスト環境 Vitest をステップbyステップで作る](https://zenn.dev/longbridge/articles/9d9ec773cb3814)
 - [Vitest テストの方法](https://zenn.dev/longbridge/scraps/c3c01b1c03f5da)
 
@@ -330,7 +331,7 @@ vite.config.ts
 - configure Prettier in JetbrainsIDE
     - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
     - select `automatic eslint configuration`
-    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx}`
+    - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
     - set `Run eslint --fix on save` to `true`
 
 ## setup prettier
@@ -381,7 +382,7 @@ yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
 - configure Prettier in JetbrainsIDE
     - open `Languages & Frameworks` > `Javascript` > `Prettier`
     - select `automatic prettier configuration`
-    - set `Run for the following file` to `src/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
+    - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
     - set `Run prettier on save` to `true`
 
 ## setup stylelint (enable CSS in JS linting)
@@ -724,18 +725,80 @@ root != null &&
 ```
 
 ## setup Playwright
+
 - install plugin
 
 ```bash
 yarn create playwright
 ```
+
 ```bash
 ✔ Where to put your end-to-end tests? · tests
 ✔ Add a GitHub Actions workflow? (y/N) · true
 ✔ Install Playwright browsers (can be done manually via 'yarn playwright install')? (Y/n) · true
 ```
 
+- edit `tsconfig.json`
+
+```diff
+   ︙
+  "include": [
+    "src",
++   "tests"
+  ],
+   ︙
+```
+
+- edit `package.json`
+
+```diff
+   ︙
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+-   "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+-   "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+-   "lint:style": "stylelint 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
+-   "lint:style:fix": "stylelint --fix 'src/**/*.{html,css,less,sass,scss,jsx,tsx}'",
++   "lint:es": "eslint '{src,tests}/**/*.{js,jsx,ts,tsx}'",
++   "lint:es:fix": "eslint --fix '{src,tests}/**/*.{js,jsx,ts,tsx}'",
++   "lint:style": "stylelint '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
++   "lint:style:fix": "stylelint --fix '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
+       "lint": "npm run --silent lint:style; npm run --silent lint:es",
+    "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
+    "pretty": "prettier --write --log-level=warn  '{src,tests}/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
+    "fix": "npm run --silent format; npm run --silent lint:fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest --coverage",
+   ︙
+  "lint-staged": {
+-   "src/**/*.{js,ts}": [
++   "{src,tests}/**/*.{js,ts}": [
+      "prettier --write --loglevel=warn",
+      "eslint --fix --quiet"
+    ],
+-   "src/**/*.{jsx,tsx}": [
++   "{src,tests}/**/*.{jsx,tsx}": [
+      "prettier --write --loglevel=warn",
+      "eslint --fix --quiet",
+      "stylelint --fix --quiet"
+    ],
+-   "src/**/*.{html,css,less,sass,scss}": [
++   "{src,tests}/**/*.{html,css,less,sass,scss}": [
+      "prettier --write --loglevel=warn",
+      "stylelint --fix --quiet"
+    ],
+-   "src/**/*.{json,gql,graphql}": [
++   "{src,tests}/**/*.{json,gql,graphql}": [
+      "prettier --write --loglevel=warn"
+    ]
+   ︙
+```
+
 ### Enable corepack on GitHub Actions
+
 - edit `.github/workflows/playwright.yml`
 
 ```diff
@@ -753,6 +816,23 @@ yarn create playwright
 +   - run: corepack enable
 +   - name: Install dependencies
 +     run: yarn
+```
+
+### exclude e2e test from vitest
+
+- edit `vite.config.ts`
+
+```diff
+   ︙
+-import { defineConfig } from "vitest/config";
++import { configDefaults, defineConfig } from "vitest/config";
+  test: {
+    globals: true,
+    environment: "jsdom",
++   exclude: [...configDefaults.exclude, "tests/**/*"],
+    setupFiles: "./vitest.setup.ts"
+  }
+   ︙
 ```
 
 ## setup Storybook
@@ -804,8 +884,9 @@ nodeLinker: node-modules
 ```
 
 ### setup Storybook add-on(chakra-ui, test-runner, a11y)
+
 - reference
-  - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
+    - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
 
 - install plugin
 
@@ -854,7 +935,7 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
  ```
 
 - create `test-runner.ts`
-    
+
 ```ts
 import { Page } from "playwright";
 import { checkA11y, injectAxe } from "axe-playwright";
@@ -876,9 +957,9 @@ export const postVisit = async (page: Page): Promise<void> => {
 ### install Storybook MSW addon
 
 - install plugin
-  - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
-    - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
-    - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121) 
+    - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
+        - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
+        - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121)
 
 ```bash
 # yarn add -D msw-storybook-addon
@@ -931,24 +1012,29 @@ yarn add -D chromatic
 ```bash
 npx chromatic --project-token=<project-token>
 ```
+
 ```bash
 ⚠ No 'chromatic' script found in your package.json
 Would you like me to add it for you? [y/N]y
 ```
 
 - add `.env`
+
 ```
 CHROMATIC_PROJECT_TOKEN=<project-token>
 ```
 
 - edit `.gitingore`
+
 ```
 + storybook-static/*
 + .env
 ```
 
 ### Setup GitHub Actions for UI testing
+
 - Edit `App.tsx` to the following contents.
+
 ```tsx
 import { type JSX } from "react";
 import "./App.css";
@@ -1039,10 +1125,10 @@ jobs:
 ```
 
 - Set the `CHROMATIC_PROJECT_TOKEN` secret in the repository settings.
-  - `Settings` > `Secrets and variables` > `Actions` > `Secrets` > `New repository secret`
-    - Name: `CHROMATIC_PROJECT_TOKEN`
-    - Secret: `<project-token>`
-  - `Add secret`
+    - `Settings` > `Secrets and variables` > `Actions` > `Secrets` > `New repository secret`
+        - Name: `CHROMATIC_PROJECT_TOKEN`
+        - Secret: `<project-token>`
+    - `Add secret`
 
 ## make directory structure
 

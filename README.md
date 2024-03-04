@@ -1142,8 +1142,8 @@ mkdir src/hooks
 mkdir src/lib
 mkdir src/providers
 mkdir src/routes
+mkdir src/schemas
 mkdir src/stores
-mkdir src/test
 mkdir src/types
 mkdir src/utils
 
@@ -1154,8 +1154,8 @@ touch src/hooks/.gitkeep
 touch src/lib/.gitkeep
 touch src/providers/.gitkeep
 touch src/routes/.gitkeep
+touch src/schemas/.gitkeep
 touch src/stores/.gitkeep
-touch src/test/.gitkeep
 touch src/types/.gitkeep
 touch src/utils/.gitkeep
 
@@ -1175,6 +1175,7 @@ mkdir -p src/features/blog/assets
 mkdir -p src/features/blog/components
 mkdir -p src/features/blog/hooks
 mkdir -p src/features/blog/routes
+mkdir -p src/features/blog/schemas
 mkdir -p src/features/blog/stores
 mkdir -p src/features/blog/types
 mkdir -p src/features/blog/utils
@@ -1185,6 +1186,7 @@ touch src/features/blog/assets/.gitkeep
 touch src/features/blog/components/.gitkeep
 touch src/features/blog/hooks/.gitkeep
 touch src/features/blog/routes/.gitkeep
+touch src/features/blog/schemas/.gitkeep
 touch src/features/blog/stores/.gitkeep
 touch src/features/blog/types/.gitkeep
 touch src/features/blog/utils/.gitkeep

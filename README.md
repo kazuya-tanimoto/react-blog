@@ -909,7 +909,8 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 +   "sb:test:detail": "test-storybook --verbose"
 ```
 
-- edit `.storybook/main.js`
+- rename `.storybook/main.js` to `.storybook/main.ts`
+- edit `.storybook/main.ts`
 
 ```diff
    ︙
@@ -921,7 +922,49 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 +   getAbsolutePath("@chakra-ui/storybook-addon"),
 +   getAbsolutePath("@storybook/addon-a11y"),
   ],
+   ︙
+  docs: {
+    autodocs: "tag",
+  },
++ features: {
++   // @ts-ignore
++   emotionAlias: false,
++ },
++ // @ts-ignore
++ webpackFinal: async (baseConfig) => {
++   return {
++     ...baseConfig,
++     resolve: {
++       ...baseConfig.resolve,
++       alias: {
++         ...baseConfig.resolve?.alias,
++         // @ts-ignore
++         "@app": path.resolve(__dirname, "../app/"),
++         // @ts-ignore
++         "@": path.resolve(__dirname, "../"),
++       },
++     },
++   };
++ },
 ```
+- rename `.storybook/preview.ts` to `.storybook/preview.tsx`
+- edit `.storybook/preview.tsx`
+    
+```diff
+ import type { Preview } from "@storybook/react";
++import { ChakraProvider } from '@chakra-ui/react';
+ import { initialize, mswDecorator } from "msw-storybook-addon";
+  ︙
+const preview: Preview = {
++ decorators: [
+    (Story) => (
+    <ChakraProvider>
+      <Story />
+    </ChakraProvider>
+    ),
+  ],
+```
+
 
 - edit `tsconfig.json`
 
@@ -972,15 +1015,24 @@ yarn add msw-storybook-addon@2.0.0--canary.122.b3ed3b1.0
 yarn msw init public/
 ```
 
-- edit `.storybook/preview.ts`
+- edit `.storybook/preview.tsx`
 
 ```diff
 import type { Preview } from "@storybook/react";
 import "../src/index.css";
-+ // for MSW
 + import { initialize, mswDecorator } from "msw-storybook-addon";
+
 + initialize();
 
+const preview: Preview = {
+  decorators: [
++   mswDecorator,
+    (Story) => (
+      <ChakraProvider>
+        <Story />
+      </ChakraProvider>
+    )
+  ],
 const preview: Preview = {
 + decorators: [mswDecorator],
   parameters: {

@@ -26,5 +26,25 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  features: {
+    // @ts-ignore
+    emotionAlias: false,
+  },
+  // @ts-ignore
+  webpackFinal: async (baseConfig) => {
+    return {
+      ...baseConfig,
+      resolve: {
+        ...baseConfig.resolve,
+        alias: {
+          ...baseConfig.resolve?.alias,
+          // @ts-ignore
+          "@app": path.resolve(__dirname, "../app/"),
+          // @ts-ignore
+          "@": path.resolve(__dirname, "../"),
+        },
+      },
+    };
+  },
 };
 export default config;

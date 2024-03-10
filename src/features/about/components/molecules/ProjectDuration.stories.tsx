@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const FirstItem: Story = {
   args: {
     // bg: "#182AB3",
-    bg: "blue.600",
+    bg: "blue.700",
     font: "#FFFFFF",
     from: "2022/09",
   },
@@ -36,7 +36,8 @@ export const SecondItem: Story = {
     // bg: "#7D3DAB",
     bg: "purple.700",
     font: "#FFFFFF",
-    from: "2022/09",
+    to: "2022/08",
+    from: "2021/01",
   },
 };
 export const ThirdItem: Story = {
@@ -44,6 +45,7 @@ export const ThirdItem: Story = {
     // bg: "#897400",
     bg: "yellow.700",
     font: "#FFFFFF",
-    from: "2022/09",
+    to: "2020/12",
+    from: "2018/09",
   },
 };

@@ -11,7 +11,7 @@ interface Props {
   to?: string;
 }
 
-export const ProjectSummary = memo(
+export const CareerItem = memo(
   ({
     title,
     summary,

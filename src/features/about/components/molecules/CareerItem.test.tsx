@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { ProjectSummary } from "./ProjectSummary.tsx";
+import { CareerItem } from "./CareerItem.tsx";
 
 describe("ProjectSummary", () => {
   it("renders title, summary, and keywords", () => {
     render(
-      <ProjectSummary
+      <CareerItem
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"
@@ -20,7 +20,7 @@ describe("ProjectSummary", () => {
 
   it('renders "from" and "to" date when provided', () => {
     render(
-      <ProjectSummary
+      <CareerItem
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"
@@ -36,7 +36,7 @@ describe("ProjectSummary", () => {
 
   it('renders "現在" when "to" date is not provided', () => {
     render(
-      <ProjectSummary
+      <CareerItem
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"

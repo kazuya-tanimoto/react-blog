@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ProjectSummary } from "./ProjectSummary.tsx";
+import { CareerItem } from "./CareerItem.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "about/molecules/ProjectSummary",
-  component: ProjectSummary,
+  component: CareerItem,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -16,7 +16,7 @@ const meta = {
   // argTypes: {
   //   backgroundColor: { control: "color" },
   // }        // rounded="md",
-} satisfies Meta<typeof ProjectSummary>;
+} satisfies Meta<typeof CareerItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

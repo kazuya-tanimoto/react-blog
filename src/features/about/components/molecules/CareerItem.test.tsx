@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { CareerItem } from "./CareerItem.tsx";
 
-describe("ProjectSummary", () => {
+describe("Career Item", () => {
   it("renders title, summary, and keywords", () => {
     render(
       <CareerItem

@@ -1,16 +1,7 @@
 import type { JSX } from "react";
 import { memo } from "react";
 import { Box, Text } from "@chakra-ui/react";
-
-interface Props {
-  title: string;
-  summary: string;
-  keywords: string;
-  color: string;
-  from: string;
-  to?: string;
-}
-
+import type { CareerItem as Props } from "../../types/Career.ts";
 export const CareerItem = memo(
   ({
     title,

@@ -1,16 +1,12 @@
 import type { JSX } from "react";
 import { memo } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import type { CareerItem as Props } from "../../types/Career.ts";
+import { DateRange } from "../atoms/DateRange.tsx";
+import { ProjectSummary } from "../atoms/ProjectSummary.tsx";
+
 export const CareerItem = memo(
-  ({
-    title,
-    summary,
-    keywords,
-    color,
-    from,
-    to = "現在",
-  }: Props): JSX.Element => {
+  ({ title, summary, keywords, color, from, to }: Props): JSX.Element => {
     return (
       <Box
         px={4}
@@ -25,33 +21,8 @@ export const CareerItem = memo(
         h={125}
         alignItems="center"
       >
-        <Box
-          boxSize={100}
-          bg={color}
-          color="white"
-          p={4}
-          shadow="lg"
-          rounded="full"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Text textAlign="center">
-            {to}
-            <br />↑<br />
-            {from}
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="space-between"
-          h="100%"
-        >
-          <Text fontSize="lg">{title}</Text>
-          <Text fontSize="sm">{summary}</Text>
-          <Text fontSize="xs">{keywords}</Text>
-        </Box>
+        <DateRange color={color} from={from} to={to} />
+        <ProjectSummary title={title} summary={summary} keywords={keywords} />
       </Box>
     );
   },

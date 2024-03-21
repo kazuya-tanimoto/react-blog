@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
+import { CareerItemsData as data } from "../organisms/CareerItemsData.ts";
 import { ProjectSummary } from "./ProjectSummary.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -24,25 +24,23 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const FirstItem: Story = {
   args: {
-    title: "社内ポータルシステム開発",
-    summary: "障害者支援業務にて利用するポータルサイト構築案件に参画中",
-    keywords: "React, Laravel, Tailwind, Docker, AWS, PM, 要件定義〜保守",
+    title: data[0].title,
+    summary: data[0].summary,
+    keywords: data[0].keywords,
   },
 };
 
 export const SecondItem: Story = {
   args: {
-    title: "医薬品購入者向け問診システム開発",
-    summary:
-      "通販サイト（楽天、Shopify）の医薬品購入者向けのオンライン問診システム構築に参画",
-    keywords: "Codeigniter, jQuery, LAMP, Docker, 要件定義〜実装",
+    title: data[1].title,
+    summary: data[1].summary,
+    keywords: data[1].keywords,
   },
 };
 export const ThirdItem: Story = {
   args: {
-    title: "ーーーー＋ーーーー１ーーーー＋ーーー９",
-    summary:
-      "ーーーー＋ーーーー１ーーーー＋ーーーー２ーーーー＋ーーーー３ーーーー＋ーーーー４ーーーー＋ーーーー５",
-    keywords: "----+----1----+----2----+----3----+----4----+----5----+-7",
+    title: data[2].title,
+    summary: data[2].summary,
+    keywords: data[2].keywords,
   },
 };

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { CareerItemsData as data } from "../organisms/CareerItemsData.ts";
 import { DateRange } from "./DateRange.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -24,22 +25,22 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Blue: Story = {
   args: {
-    color: "blue.600",
-    from: "2022/09",
+    color: data[0].color,
+    from: data[0].from,
   },
 };
 
 export const Purple: Story = {
   args: {
-    color: "purple.800",
-    to: "2022/08",
-    from: "2021/01",
+    color: data[1].color,
+    from: data[1].from,
+    to: data[1].to,
   },
 };
 export const Yellow: Story = {
   args: {
-    color: "yellow.700",
-    to: "2020/12",
-    from: "2018/09",
+    color: data[2].color,
+    from: data[2].from,
+    to: data[2].to,
   },
 };

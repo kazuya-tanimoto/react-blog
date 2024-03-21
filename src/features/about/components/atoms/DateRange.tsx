@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Circle, Text } from "@chakra-ui/react";
 
 interface Props {
   color: string;
@@ -8,22 +8,17 @@ interface Props {
 }
 
 export const DateRange = ({ color, from, to = "現在" }: Props): JSX.Element => (
-  <Box
+  <Circle
     data-testid="date-range"
-    boxSize={100}
+    size={100}
     bg={color}
     color="white"
-    p={4}
     shadow="lg"
-    rounded="full"
-    display="flex"
-    alignItems="center"
-    justifyContent="center"
   >
     <Text textAlign="center">
       {to}
       <br />↑<br />
       {from}
     </Text>
-  </Box>
+  </Circle>
 );

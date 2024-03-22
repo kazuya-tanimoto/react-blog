@@ -18,6 +18,7 @@ export const CareerItem = memo(
         gap={2}
         h={125}
         align="center"
+        _hover={{ opacity: 0.8, cursor: "pointer" }}
       >
         <DateRange color={color} from={from} to={to} />
         <ProjectSummary title={title} summary={summary} keywords={keywords} />

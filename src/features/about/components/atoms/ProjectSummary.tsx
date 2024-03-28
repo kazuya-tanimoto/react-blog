@@ -13,8 +13,14 @@ export const ProjectSummary = ({
   keywords,
 }: Props): JSX.Element => (
   <Flex direction="column" justify="space-between" h="100%">
-    <Text fontSize="lg">{title}</Text>
-    <Text fontSize="sm">{summary}</Text>
-    <Text fontSize="xs">{keywords}</Text>
+    <Text fontSize="lg" noOfLines={1}>
+      {title}
+    </Text>
+    <Text fontSize="sm" noOfLines={2}>
+      {summary}
+    </Text>
+    <Text fontSize="xs" noOfLines={2}>
+      {keywords}
+    </Text>
   </Flex>
 );

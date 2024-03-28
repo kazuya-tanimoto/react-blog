@@ -33,3 +33,6 @@ export const SecondItem: Story = {
 export const ThirdItem: Story = {
   args: data[2],
 };
+export const LongString: Story = {
+  args: data[3],
+};

@@ -29,4 +29,15 @@ export const CareerItemsData: CareerItem[] = [
     to: "2020/12",
     from: "2018/09",
   },
+  {
+    title: "長いタイトルの文字列。３０文字程度あるので入りきらない。",
+    summary:
+      "長い概要の文字列。８０文字程度あるので入りきらない。長い概要の文字列。８０文字程度あるので入りきらない。長い概要の文字列。８０文字程度あるので入りきらない。",
+    keywords:
+      "Long keywords, about 200 characters, so it's long enough to wrap. Long keywords, about 200 characters, so it's long enough to wrap. Long keywords, about 200 characters, so it's long enough to wrap.",
+    // color: "#897400",
+    color: "blue.600",
+    to: "2018/08",
+    from: "2017/09",
+  },
 ];

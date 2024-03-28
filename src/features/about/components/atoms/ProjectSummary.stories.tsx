@@ -44,3 +44,10 @@ export const ThirdItem: Story = {
     keywords: data[2].keywords,
   },
 };
+export const LongString: Story = {
+  args: {
+    title: data[3].title,
+    summary: data[3].summary,
+    keywords: data[3].keywords,
+  },
+};

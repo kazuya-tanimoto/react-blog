@@ -222,6 +222,7 @@ yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks
         "next": "return"
       }
     ],
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": [

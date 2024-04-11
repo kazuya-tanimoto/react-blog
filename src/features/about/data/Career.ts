@@ -1,6 +1,6 @@
-import { type CareerItem } from "../../types/Career.ts";
+import { type CareerItem } from "../types/Career.ts";
 
-export const CareerItemsData: CareerItem[] = [
+export const Career: CareerItem[] = [
   {
     title: "社内ポータルシステム開発",
     summary: "障害者支援業務にて利用するポータルサイト構築案件に参画中",
@@ -16,8 +16,8 @@ export const CareerItemsData: CareerItem[] = [
     keywords: "Codeigniter, jQuery, LAMP, Docker, 要件定義〜実装",
     // color: "#7D3DAB",
     color: "purple.800",
-    to: "2022/08",
     from: "2021/01",
+    to: "2022/08",
   },
   {
     title: "ーーーー＋ーーーー１ーーーー＋ーーー９",
@@ -26,8 +26,8 @@ export const CareerItemsData: CareerItem[] = [
     keywords: "----+----1----+----2----+----3----+----4----+----5----+-7",
     // color: "#897400",
     color: "yellow.700",
-    to: "2020/12",
     from: "2018/09",
+    to: "2020/12",
   },
   {
     title: "長いタイトルの文字列。３０文字程度あるので入りきらない。",
@@ -37,7 +37,7 @@ export const CareerItemsData: CareerItem[] = [
       "Long keywords, about 200 characters, so it's long enough to wrap. Long keywords, about 200 characters, so it's long enough to wrap. Long keywords, about 200 characters, so it's long enough to wrap.",
     // color: "#897400",
     color: "blue.600",
-    to: "2018/08",
     from: "2017/09",
+    to: "2018/08",
   },
 ];

@@ -1,3 +1,4 @@
+import { useBreakpointValue } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import { DateRange } from "./DateRange.tsx";
 
@@ -24,5 +25,12 @@ describe("DateRange component", () => {
     render(<DateRange color="#182AB3" from="2000" />);
     const dateRangeElement = screen.getByTestId("date-range");
     expect(dateRangeElement).toHaveStyle("background-color: #182AB3");
+  });
+
+  it("renders correctly when breakpoint is 'base'", () => {
+    vi.mocked(useBreakpointValue).mockImplementation(() => true);
+    render(<DateRange color="blue" from="2000/01" />);
+    const dateRangeElement = screen.getByText(/2000\/01 → 現在/i);
+    expect(dateRangeElement).toBeInTheDocument();
   });
 });

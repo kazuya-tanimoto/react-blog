@@ -11,22 +11,21 @@ export const CareerItem = ({
   color,
   from,
   to,
-}: Props): JSX.Element => {
-  return (
-    <Flex
-      px={4}
-      py={2}
-      w={500}
-      borderWidth={1}
-      borderColor={color}
-      rounded="full"
-      gap={2}
-      h={125}
-      align="center"
-      _hover={{ opacity: 0.8, cursor: "pointer" }}
-    >
-      <DateRange color={color} from={from} to={to} />
-      <ProjectSummary title={title} summary={summary} keywords={keywords} />
-    </Flex>
-  );
-};
+}: Props): JSX.Element => (
+  <Flex
+    direction={{ base: "column", sm: "row" }}
+    px={4}
+    py={1}
+    w={{ base: "full", sm: 500 }}
+    borderWidth={1}
+    borderColor={color}
+    rounded="full"
+    gap={{ base: 0, sm: 2 }}
+    minH={125}
+    align="center"
+    _hover={{ opacity: 0.8, cursor: "pointer" }}
+  >
+    <DateRange color={color} from={from} to={to} />
+    <ProjectSummary title={title} summary={summary} keywords={keywords} />
+  </Flex>
+);

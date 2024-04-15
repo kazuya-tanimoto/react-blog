@@ -574,8 +574,13 @@ import "@testing-library/jest-dom";
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
 + test: {
-+   globals: true,
++   coverage: {
++     provider: "v8",
++     include: ["src/**/*"],
++     exclude: [ "**/stories/*", "**/*.stories.tsx", "**/types/*.ts", "**/*.d.ts", "**/data/*.ts"]
++   },
 +   environment: "jsdom",
++   globals: true,
 +   setupFiles: "./vitest.setup.ts",
 + },
 });

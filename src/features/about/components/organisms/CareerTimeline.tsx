@@ -40,14 +40,14 @@ export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
                     position: "absolute",
                     h: "6",
                     w: "0.5",
-                    bg: "#4A5668",
-                    // bg: `"{$color}"`,
+                    bg: item.color,
                     content: '""',
                     top: "100%",
                     left: "50%",
                   }
                 : {}
             }
+            data-testid={`career-item-${index}`}
           >
             {isBase ? (
               <CareerItem

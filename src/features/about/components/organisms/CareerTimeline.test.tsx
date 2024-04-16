@@ -65,6 +65,45 @@ describe("CareerTimeline component", () => {
     expect(listItems.length).toBe(data.length);
   });
 
+  /*
+   * jsdomではwindow.getComputedStyle で _after が取得できないため、テスト実施しない
+   */
+  // it("renders with _after pseudo-element when breakpoint is 'base' and item is not the last one", () => {
+  //   vi.mocked(useBreakpointValue).mockImplementation(() => true);
+  //   render(<CareerTimeline items={[data[0], data[1]]} />);
+  //   const firstItem = screen.getByTestId("career-item-0");
+  //   const style = window.getComputedStyle(firstItem, "_after");
+  //   const bgColor = style.getPropertyValue("background-color");
+  //   console.log(bgColor);
+  //   expect(
+  //     bgColor === "transparent" || bgColor === "rgba(0, 0, 0, 0)",
+  //   ).toBeTruthy();
+  // });
+  //
+  // it("does not render with _after pseudo-element when breakpoint is 'base' and item is the last one", () => {
+  //   vi.mocked(useBreakpointValue).mockImplementation(() => true);
+  //   render(<CareerTimeline items={[data[0], data[1]]} />);
+  //   const lastItem = screen.getByTestId("career-item-1");
+  //   const style = window.getComputedStyle(lastItem, "_after");
+  //   const bgColor = style.getPropertyValue("background-color");
+  //   console.log(bgColor);
+  //   expect(
+  //     bgColor === "transparent" || bgColor === "rgba(0, 0, 0, 0)",
+  //   ).toBeTruthy();
+  // });
+  //
+  // it("does not render with _after pseudo-element when breakpoint isn't 'base'", () => {
+  //   vi.mocked(useBreakpointValue).mockImplementation(() => false);
+  //   render(<CareerTimeline items={[data[0]]} />);
+  //   const item = screen.getByTestId("career-item-0");
+  //   const style = window.getComputedStyle(item, "_after");
+  //   const bgColor = style.getPropertyValue("background-color");
+  //   console.log(bgColor);
+  //   expect(
+  //     bgColor === "transparent" || bgColor === "rgba(0, 0, 0, 0)",
+  //   ).toBeTruthy();
+  // });
+
   it("does not render when items are empty", () => {
     render(<CareerTimeline items={[]} />);
     const timelineElement = screen.queryByRole("list");

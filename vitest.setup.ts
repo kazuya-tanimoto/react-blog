@@ -16,5 +16,5 @@ vi.mock("@chakra-ui/react", async () => {
 });
 
 beforeEach(() => {
-  vi.mocked(useBreakpointValue).mockImplementation(() => false);
+  vi.mocked(useBreakpointValue).mockReturnValue(false);
 });

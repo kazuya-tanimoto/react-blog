@@ -28,7 +28,7 @@ describe("DateRange component", () => {
   });
 
   it("renders correctly when breakpoint is 'base'", () => {
-    vi.mocked(useBreakpointValue).mockImplementation(() => true);
+    vi.mocked(useBreakpointValue).mockReturnValue(true);
     render(<DateRange color="blue" from="2000/01" />);
     const dateRangeElement = screen.getByText(/2000\/01 → 現在/i);
     expect(dateRangeElement).toBeInTheDocument();

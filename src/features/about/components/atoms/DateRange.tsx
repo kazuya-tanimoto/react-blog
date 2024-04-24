@@ -1,5 +1,6 @@
 import type { JSX } from "react";
-import { Circle, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Circle, Text } from "@chakra-ui/react";
+import { useScreenResolution } from "../../hooks/useScreenResolution.ts";
 
 interface Props {
   color: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export const DateRange = ({ color, from, to = "現在" }: Props): JSX.Element => {
-  const isBase = useBreakpointValue({ base: true, sm: false });
+  const { isBase } = useScreenResolution();
 
   return isBase ? (
     <Text

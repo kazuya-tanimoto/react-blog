@@ -1,21 +1,12 @@
 import { type JSX } from "react";
-import {
-  Flex,
-  List,
-  ListItem,
-  Box,
-  Text,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Flex, List, ListItem, Box, Text } from "@chakra-ui/react";
+import { useScreenResolution } from "../../hooks/useScreenResolution.ts";
 import { type CareerItems } from "../../types/Career.ts";
 import { CareerItem } from "../molecules/CareerItem.tsx";
 import { CareerItemNumber } from "../molecules/CareerItemNumber.tsx";
 
 export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
-  const isBase = useBreakpointValue({
-    base: true,
-    sm: false,
-  });
+  const { isBase } = useScreenResolution();
 
   if (items.length === 0) {
     return (

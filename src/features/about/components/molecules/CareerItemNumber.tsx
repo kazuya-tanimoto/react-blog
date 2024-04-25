@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+import { Icon } from "@chakra-ui/icons";
 import { Circle } from "@chakra-ui/react";
 import { BiSolidUpArrow } from "react-icons/bi";
 
@@ -27,7 +28,8 @@ export const CareerItemNumber = ({ index }: { index: number }): JSX.Element => (
     }}
   >
     {index === 0 && (
-      <BiSolidUpArrow
+      <Icon
+        as={BiSolidUpArrow}
         size={20}
         style={{
           position: "absolute",

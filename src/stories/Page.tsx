@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Header as ChakraHeader } from "../components/templates/Header.tsx";
 import { Header } from "./Header.tsx";
 import "./page.css";
 
@@ -12,6 +13,7 @@ export const Page: React.FC = () => {
 
   return (
     <article>
+      <ChakraHeader loggedIn={true} />
       <Header
         user={user}
         onLogin={() => {

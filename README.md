@@ -552,7 +552,7 @@ ncu -u
 - install plugin and msw
 
 ```bash
-yarn add -D vitest @vitest/ui @vitest/coverage-v8 jsdom @testing-library/react @testing-library/jest-dom eslint-plugin-testing-library eslint-plugin-jest-dom msw
+yarn add -D vitest @vitest/ui @vitest/coverage-v8 jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event @testing-library/dom eslint-plugin-testing-library eslint-plugin-jest-dom msw
 ```
 
 - create `vitest.setup.ts`
@@ -700,6 +700,27 @@ test("「Hello Test」が描画されている", () => {
 
 ```bash
 yarn add react-router-dom
+```
+
+- edit `main.tsx`
+
+```diff
+import React from 'react'
++ import { ChakraProvider } from "@chakra-ui/react"
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+
+const root = document.getElementById("root");
+root != null &&
+
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
++     <BrowserRouter>
+        <App />
++     </BrowserRouter>
+    </React.StrictMode>,
+  );
 ```
 
 ## setup chakra-ui
@@ -889,7 +910,7 @@ yarn install
 nodeLinker: node-modules
 ```
 
-### setup Storybook add-on(chakra-ui, test-runner, a11y)
+### setup Storybook add-on(react-router, chakra-ui, test-runner, a11y)
 
 - reference
     - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
@@ -897,7 +918,7 @@ nodeLinker: node-modules
 - install plugin
 
 ```bash
-yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a11y playwright axe-playwright
+yarn add -D @storybook/test-runner storybook-addon-remix-react-router @chakra-ui/storybook-addon @storybook/addon-a11y playwright axe-playwright
 ```
 
 - edit `package.json`
@@ -953,24 +974,25 @@ yarn add -D @storybook/test-runner @chakra-ui/storybook-addon @storybook/addon-a
 +   };
 + },
 ```
+
 - rename `.storybook/preview.ts` to `.storybook/preview.tsx`
 - edit `.storybook/preview.tsx`
-    
+
 ```diff
  import type { Preview } from "@storybook/react";
++import { withRouter } from "storybook-addon-remix-react-router";
 +import { ChakraProvider } from '@chakra-ui/react';
- import { initialize, mswDecorator } from "msw-storybook-addon";
   ︙
 const preview: Preview = {
 + decorators: [
-    (Story) => (
-    <ChakraProvider>
-      <Story />
-    </ChakraProvider>
-    ),
-  ],
++   withRouter,
++   (Story) => (
++   <ChakraProvider>
++     <Story />
++   </ChakraProvider>
++   ),
++ ],
 ```
-
 
 - edit `tsconfig.json`
 

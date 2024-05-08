@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 export const NavigationLinks = (): JSX.Element => {
   return (
-    <Flex alignItems="center" gap={8}>
+    <Flex alignItems="center" gap={{ base: 4, sm: 8 }}>
       <Link as={RouterLink} to="/">
         Home
       </Link>

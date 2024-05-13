@@ -5,6 +5,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useScreenResolution } from "../../features/about/hooks/useScreenResolution.ts";
 import { NavigationLinks } from "../molecules/NavigationLinks.tsx";
 
 interface HeaderProps {
@@ -12,26 +13,47 @@ interface HeaderProps {
 }
 
 export const Header = ({ loggedIn = false }: HeaderProps): JSX.Element => {
+  const { isBase } = useScreenResolution();
+
   return (
     <header>
       <Flex
         justify="space-between"
+        alignItems="center"
         direction={{ base: "column", sm: "row" }}
         p={{ base: 1, sm: 8 }}
         gap={{ sm: 32 }}
       >
         <Image src={logo} alt="Logo" w={{ base: 48, sm: 64 }} />
-        <Flex alignItems="center">
+        <Flex justify="space-between">
           <NavigationLinks />
           {loggedIn && (
-            <Flex alignItems="center" ml={4} gap={{ base: 4, sm: 8 }}>
-              <Link as={RouterLink} to="#" ml={{ sm: 8 }}>
-                <Icon as={IoSettingsOutline} boxSize={5} m={1} mt={2} />
-                {/* Admin menu */}
+            <Flex gap={{ base: 4, sm: 8 }}>
+              <Link as={RouterLink} to="#" ml={{ base: 4, sm: 8 }}>
+                {isBase ? (
+                  <Icon
+                    as={IoSettingsOutline}
+                    boxSize={5}
+                    m={1}
+                    mt={2}
+                    data-testid="admin-menu-icon"
+                  />
+                ) : (
+                  "Admin menu"
+                )}
               </Link>
               <Link as={RouterLink} to="#">
-                <Icon as={IoIosLogOut} boxSize={5} m={1} mt={2} />
-                {/* Logout */}
+                {isBase ? (
+                  <Icon
+                    as={IoIosLogOut}
+                    boxSize={5}
+                    m={1}
+                    mt={2}
+                    data-testid="logout-icon"
+                  />
+                ) : (
+                  "Logout"
+                )}
               </Link>
             </Flex>
           )}

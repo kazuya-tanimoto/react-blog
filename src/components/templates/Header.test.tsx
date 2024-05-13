@@ -1,3 +1,4 @@
+import { useBreakpointValue } from "@chakra-ui/react";
 import { screen } from "@testing-library/react";
 import { renderWithRouter } from "../../utils/RenderWithRouter.tsx";
 import { Header } from "./Header.tsx";
@@ -33,5 +34,23 @@ describe("Header component", () => {
     const logoutLink = screen.getByText("Logout");
     expect(adminMenuLink).toBeInTheDocument();
     expect(logoutLink).toBeInTheDocument();
+  });
+
+  it("does not render admin menu and logout icon when not logged in, regardless of resolution", () => {
+    vi.mocked(useBreakpointValue).mockImplementation(() => true);
+    renderWithRouter(<Header loggedIn={false} />);
+    const adminMenuIcon = screen.queryByTestId("admin-menu-icon");
+    expect(adminMenuIcon).not.toBeInTheDocument();
+    const logoutIcon = screen.queryByTestId("logout-icon");
+    expect(logoutIcon).not.toBeInTheDocument();
+  });
+
+  it("renders admin menu and logout icon when logged in and in base resolution", () => {
+    vi.mocked(useBreakpointValue).mockImplementation(() => true);
+    renderWithRouter(<Header loggedIn={true} />);
+    const adminMenuIcon = screen.queryByTestId("admin-menu-icon");
+    expect(adminMenuIcon).toBeInTheDocument();
+    const logoutIcon = screen.getByTestId("logout-icon");
+    expect(logoutIcon).toBeInTheDocument();
   });
 });

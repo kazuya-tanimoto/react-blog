@@ -5,6 +5,7 @@ import { type CareerItems } from "../../types/Career.ts";
 import { CareerItem } from "../molecules/CareerItem.tsx";
 import { CareerItemNumber } from "../molecules/CareerItemNumber.tsx";
 
+const colors = ["blue.600", "purple.800", "yellow.700"];
 export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
   const { isBase } = useScreenResolution();
 
@@ -31,7 +32,7 @@ export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
                     position: "absolute",
                     h: "6",
                     w: "0.5",
-                    bg: item.color,
+                    bg: colors[index % colors.length],
                     content: '""',
                     top: "100%",
                     left: "50%",
@@ -45,7 +46,7 @@ export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
                 title={item.title}
                 summary={item.summary}
                 keywords={item.keywords}
-                color={item.color}
+                color={colors[index % colors.length]}
                 from={item.from}
                 to={item.to}
               />
@@ -57,7 +58,7 @@ export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {
                   title={item.title}
                   summary={item.summary}
                   keywords={item.keywords}
-                  color={item.color}
+                  color={colors[index % colors.length]}
                   from={item.from}
                   to={item.to}
                 />

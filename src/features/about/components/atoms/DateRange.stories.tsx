@@ -21,24 +21,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const colors = ["blue.600", "purple.800", "yellow.700"];
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Blue: Story = {
   args: {
-    color: data[0].color,
+    color: colors[0],
     from: data[0].from,
   },
 };
 
 export const Purple: Story = {
   args: {
-    color: data[1].color,
+    color: colors[1],
     from: data[1].from,
     to: data[1].to,
   },
 };
 export const Yellow: Story = {
   args: {
-    color: data[2].color,
+    color: colors[2],
     from: data[2].from,
     to: data[2].to,
   },

@@ -1,4 +1,5 @@
 export interface CareerItem {
+  id: number;
   title: string;
   summary: string;
   keywords: string;
@@ -7,4 +8,17 @@ export interface CareerItem {
 }
 export interface CareerItems {
   items: CareerItem[];
+}
+
+export interface NestedListItem {
+  item: string;
+  subItem?: NestedListItem[];
+}
+export interface CareerDetail extends Omit<CareerItem, "keywords"> {
+  responsibility: NestedListItem[];
+  technology: NestedListItem[];
+  role: string;
+  scale: string;
+  responsibleProcess: string;
+  comment: NestedListItem[];
 }

@@ -116,6 +116,9 @@ yarn add -D vite-tsconfig-paths
      ︙
     "skipLibCheck": true,
 +   "baseUrl": "src",
++   "paths": {
++     "@/*": ["./*"]
++   },
 ```
 
 ## setup ESLint
@@ -253,10 +256,10 @@ yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks
       {
         "ignorePackages": true,
         "pattern": {
-          "js": "never",
-          "jsx": "never",
-          "ts": "never",
-          "tsx": "never"
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
         }
       }
     ],

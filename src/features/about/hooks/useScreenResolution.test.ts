@@ -1,5 +1,5 @@
 import { useBreakpointValue } from "@chakra-ui/react";
-import { useScreenResolution } from "./useScreenResolution.ts";
+import { useScreenResolution } from "./useScreenResolution";
 
 it("returns isBase as true when base breakpoint is active", () => {
   vi.mocked(useBreakpointValue).mockReturnValue(true);

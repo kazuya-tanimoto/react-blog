@@ -7,11 +7,11 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useScreenResolution } from "../../hooks/useScreenResolution.ts";
-import type { CareerItems } from "../../types/Career.ts";
-import { CareerItem } from "../molecules/CareerItem.tsx";
-import { CareerItemNumber } from "../molecules/CareerItemNumber.tsx";
-import { CareerDetailModal } from "./CareerDetailModal.tsx";
+import { useScreenResolution } from "../../hooks/useScreenResolution";
+import type { CareerItems } from "../../types/Career";
+import { CareerItem } from "../molecules/CareerItem";
+import { CareerItemNumber } from "../molecules/CareerItemNumber";
+import { CareerDetailModal } from "./CareerDetailModal";
 
 const colors = ["blue.600", "purple.800", "yellow.700"];
 export const CareerTimeline = ({ items }: CareerItems): JSX.Element => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Career as data } from "../../data/Career.ts";
-import { ProjectSummary } from "./ProjectSummary.tsx";
+import { Career as data } from "../../data/Career";
+import { ProjectSummary } from "./ProjectSummary";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { CareerItemNumber } from "./CareerItemNumber.tsx";
+import { CareerItemNumber } from "./CareerItemNumber";
 
 describe("CareerItemNumber", () => {
   it("displays arrow for zero index", () => {

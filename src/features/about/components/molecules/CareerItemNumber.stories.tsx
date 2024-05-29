@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CareerItemNumber } from "./CareerItemNumber.tsx";
+import { CareerItemNumber } from "./CareerItemNumber";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

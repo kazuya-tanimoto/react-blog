@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { type NestedListItem } from "../../types/Career.ts";
-import { NestedList } from "./NestedList.tsx";
+import { type NestedListItem } from "../../features/about/types/Career";
+import { NestedList } from "./NestedList";
 
 describe("NestedList", () => {
   it("renders list items correctly", () => {

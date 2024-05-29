@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import { CareerDetailModal } from "./CareerDetailModal.tsx";
+import { CareerDetailModal } from "./CareerDetailModal";
 
 describe("CareerDetailModal", () => {
   const onCloseMock = vi.fn();

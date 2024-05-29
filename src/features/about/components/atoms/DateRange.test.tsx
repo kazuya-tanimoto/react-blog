@@ -1,6 +1,6 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
-import { DateRange } from "./DateRange.tsx";
+import { DateRange } from "./DateRange";
 
 describe("DateRange component", () => {
   it("renders with default 'to' value when not provided", () => {

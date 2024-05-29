@@ -81,15 +81,12 @@
     ],
     "import/extensions": [
       "error",
-      "always",
+      "ignorePackages",
       {
-        "ignorePackages": true,
-        "pattern": {
-          "js": "never",
-          "jsx": "never",
-          "ts": "never",
-          "tsx": "never"
-        }
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "import/order": [
@@ -133,6 +130,11 @@
     "react/display-name": "off"
   },
   "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
     "react": {
       "version": "detect"
     }

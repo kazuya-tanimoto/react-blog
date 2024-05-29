@@ -1,15 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { CareerItem } from "./CareerItem.tsx";
+import { CareerItem } from "./CareerItem";
 
 describe("Career Item", () => {
   it("renders title, summary, and keywords", () => {
     render(
       <CareerItem
+        id={1}
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"
         color="blue"
         from="2022"
+        onOpen={() => {}}
       />,
     );
 
@@ -21,12 +23,14 @@ describe("Career Item", () => {
   it('renders "from" and "to" date when provided', () => {
     render(
       <CareerItem
+        id={1}
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"
         color="blue"
         from="2022/09"
         to="2023/08"
+        onOpen={() => {}}
       />,
     );
 
@@ -37,11 +41,13 @@ describe("Career Item", () => {
   it('renders "現在" when "to" date is not provided', () => {
     render(
       <CareerItem
+        id={1}
         title="Test Title"
         summary="Test Summary"
         keywords="Test Keywords"
         color="blue"
         from="202209"
+        onOpen={() => {}}
       />,
     );
 

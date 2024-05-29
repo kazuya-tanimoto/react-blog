@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ProjectSummary } from "./ProjectSummary.tsx";
+import { ProjectSummary } from "./ProjectSummary";
 
 describe("ProjectSummary component", () => {
   it("renders with provided title", () => {

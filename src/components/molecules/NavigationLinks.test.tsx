@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../utils/RenderWithRouter.tsx";
-import { NavigationLinks } from "./NavigationLinks.tsx";
+import { renderWithRouter } from "../../utils/RenderWithRouter";
+import { NavigationLinks } from "./NavigationLinks";
 
 it("renders all navigation links", () => {
   renderWithRouter(<NavigationLinks />);

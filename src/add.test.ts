@@ -1,4 +1,4 @@
-import { add } from "./add.ts";
+import { add } from "./add";
 
 describe("add", () => {
   it("adds two numbers", () => {

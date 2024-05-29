@@ -5,8 +5,8 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { useScreenResolution } from "../../features/about/hooks/useScreenResolution.ts";
-import { NavigationLinks } from "../molecules/NavigationLinks.tsx";
+import { useScreenResolution } from "../../features/about/hooks/useScreenResolution";
+import { NavigationLinks } from "../molecules/NavigationLinks";
 
 interface HeaderProps {
   loggedIn?: boolean;

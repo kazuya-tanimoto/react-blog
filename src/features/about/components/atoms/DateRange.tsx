@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { Circle, Text } from "@chakra-ui/react";
-import { useScreenResolution } from "../../hooks/useScreenResolution.ts";
+import { useScreenResolution } from "../../hooks/useScreenResolution";
 
 interface Props {
   color: string;

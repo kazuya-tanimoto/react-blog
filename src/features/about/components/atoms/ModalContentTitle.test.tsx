@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ModalContentTitle } from "./ModalContentTitle.tsx";
+import { ModalContentTitle } from "./ModalContentTitle";
 
 describe("ModalContentTitle", () => {
   it("renders the title text correctly", () => {

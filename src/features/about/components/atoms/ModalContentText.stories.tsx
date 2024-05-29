@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ModalContentText } from "./ModalContentText.tsx";
+import { ModalContentText } from "./ModalContentText";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

@@ -1,8 +1,8 @@
 import type { JSX } from "react";
 import { Flex, Link } from "@chakra-ui/react";
-import type { CareerItem as CareerItemType } from "../../types/Career.ts";
-import { DateRange } from "../atoms/DateRange.tsx";
-import { ProjectSummary } from "../atoms/ProjectSummary.tsx";
+import type { CareerItem as CareerItemType } from "../../types/Career";
+import { DateRange } from "../atoms/DateRange";
+import { ProjectSummary } from "../atoms/ProjectSummary";
 
 interface Props extends CareerItemType {
   color: string;

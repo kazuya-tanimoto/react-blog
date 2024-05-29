@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../utils/RenderWithRouter.tsx";
-import { Footer } from "./Footer.tsx";
+import { renderWithRouter } from "../../utils/RenderWithRouter";
+import { Footer } from "./Footer";
 
 describe("Footer", () => {
   it("renders the footer with correct text", () => {

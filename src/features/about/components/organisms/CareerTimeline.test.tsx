@@ -1,7 +1,7 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { Career as data } from "../../data/Career.ts";
-import { CareerTimeline } from "./CareerTimeline.tsx";
+import { Career as data } from "../../data/Career";
+import { CareerTimeline } from "./CareerTimeline";
 
 describe("CareerTimeline component", () => {
   it("renders with provided items when breakpoint isn't 'base'", () => {

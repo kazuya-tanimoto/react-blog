@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Header as ChakraHeader } from "../components/templates/Header.tsx";
-import { Header } from "./Header.tsx";
+import { Header as ChakraHeader } from "../components/templates/Header";
+import { Header } from "./Header";
 import "./page.css";
 
 type User = {

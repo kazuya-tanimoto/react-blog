@@ -1,3 +1,4 @@
+
 # react-template
 
 ## references
@@ -35,7 +36,7 @@
 - [StorybookをReact, Typescriptな環境に導入する - RoadMovie](https://tech-mr-myself.hatenablog.com/entry/2020/02/05/214226)
 - [React + TypeScript: Storybookを使ってみる - Qiita](https://qiita.com/FumioNonaka/items/7394f96f7d0090f2b10c)
 - [Storybook Tutorials](https://storybook.js.org/tutorials/intro-to-storybook/react/ja/get-started/)
-    - 古いVerかつNo-TypeScriptなのであくまで参考程度
+  - 古いVerかつNo-TypeScriptなのであくまで参考程度
 - [React/Next.jsでAtomic Designを導入する初心者がとりあえず読む記事](https://zenn.dev/hisachii/articles/2544d6ea10033d#chakra-ui)
 - [Storybookを導入する際にやるべきこと3選](https://zenn.dev/sum0/articles/9463d16d9d40e2)
 - [Component Story Format 3.0](https://storybook.js.org/blog/component-story-format-3-0/)
@@ -179,7 +180,7 @@ Successfully created .eslintrc.json file in /Users/kanae/learning/eslint
 - install additional plugins
 
 ```bash
-yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks eslint-import-resolver-typescript
 ```
 
 - update `.eslintrc.json`
@@ -252,15 +253,12 @@ yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks
     ],
     "import/extensions": [
       "error",
-      "always",
+      "ignorePackages",
       {
-        "ignorePackages": true,
-        "pattern": {
         "js": "never",
         "jsx": "never",
         "ts": "never",
         "tsx": "never"
-        }
       }
     ],
     "import/order": [
@@ -333,10 +331,10 @@ vite.config.ts
 ```
 
 - configure Prettier in JetbrainsIDE
-    - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
-    - select `automatic eslint configuration`
-    - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
-    - set `Run eslint --fix on save` to `true`
+  - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
+  - select `automatic eslint configuration`
+  - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
+  - set `Run eslint --fix on save` to `true`
 
 ## setup prettier
 
@@ -358,7 +356,7 @@ yarn add -D prettier eslint-config-prettier
 ```
 
 - create `.prettierrc.json`
-    - use prettier default setting
+  - use prettier default setting
 
 ```json
 {}
@@ -384,10 +382,10 @@ yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
 ```
 
 - configure Prettier in JetbrainsIDE
-    - open `Languages & Frameworks` > `Javascript` > `Prettier`
-    - select `automatic prettier configuration`
-    - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
-    - set `Run prettier on save` to `true`
+  - open `Languages & Frameworks` > `Javascript` > `Prettier`
+  - select `automatic prettier configuration`
+  - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
+  - set `Run prettier on save` to `true`
 
 ## setup stylelint (enable CSS in JS linting)
 
@@ -453,33 +451,33 @@ yarn add -D stylelint stylelint-config-standard stylelint-order stylelint-config
 ```
 
 - configure Stylelint in JetbrainsIDE
-    - open `Languages & Frameworks` > `Style Sheets` > `Stylelint`
-    - set `Enable` to `true`
-    - set `Run for the following file` to `{**/*,*}.{html,css,less,sass,scss,jsx,tsx}`
+  - open `Languages & Frameworks` > `Style Sheets` > `Stylelint`
+  - set `Enable` to `true`
+  - set `Run for the following file` to `{**/*,*}.{html,css,less,sass,scss,jsx,tsx}`
 
 - configure file watcher in JetbrainsIDE(for CSS)
-    - open `Preferences` > `Tools` > `File Watchers`
-    - add new `lint-css` watcher
-    - set `Filet Type` to `css`
-    - set `Program` to `yarn`
-    - set `Arguments` to `stylelint --fix $FilePath$`
-    - set `Output paths to refresh` to None
-    - set `Working directory` to `$ProjectFileDir$`
-    - set `Advanced Options` > All Options to `false`
-    - set `Display console` to `On Error`
-    - Add the same settings for `less, sass, scss`
+  - open `Preferences` > `Tools` > `File Watchers`
+  - add new `lint-css` watcher
+  - set `Filet Type` to `css`
+  - set `Program` to `yarn`
+  - set `Arguments` to `stylelint --fix $FilePath$`
+  - set `Output paths to refresh` to None
+  - set `Working directory` to `$ProjectFileDir$`
+  - set `Advanced Options` > All Options to `false`
+  - set `Display console` to `On Error`
+  - Add the same settings for `less, sass, scss`
 
 - configure file watcher in JetbrainsIDE(for CSS in JS)
-    - open `Preferences` > `Tools` > `File Watchers`
-    - add new `lint-css-in-jsx` watcher
-    - set `Filet Type` to `React JSX`
-    - set `Program` to `yarn`
-    - set `Arguments` to `stylelint --fix $FilePath$`
-    - set `Output paths to refresh` to None
-    - set `Working directory` to `$ProjectFileDir$`
-    - set `Advanced Options` > All Options to `false`
-    - set `Display console` to `On Error`
-    - Add the same settings for `tsx`
+  - open `Preferences` > `Tools` > `File Watchers`
+  - add new `lint-css-in-jsx` watcher
+  - set `Filet Type` to `React JSX`
+  - set `Program` to `yarn`
+  - set `Arguments` to `stylelint --fix $FilePath$`
+  - set `Output paths to refresh` to None
+  - set `Working directory` to `$ProjectFileDir$`
+  - set `Advanced Options` > All Options to `false`
+  - set `Display console` to `On Error`
+  - Add the same settings for `tsx`
 
 ## setup simple-git-hooks & lint-staged
 
@@ -880,10 +878,10 @@ npx storybook@latest init
 
 - Storybook導入に伴い依存性が変更となり、lintでエラーが発生する。そのため、依存性を修正する。
 - 下記は最新VerではCommonJSのエクスポートに対応しておらず、linter側でimportできない為古いバージョンに落とす
-    - string-width
-    - strip-ansi
+  - string-width
+  - strip-ansi
 - 下記はpostcss-syntaxとpostcssのバージョン不整合が問題?
-    - stylelint/postcss
+  - stylelint/postcss
 
 - edit `package.json`
 
@@ -916,7 +914,7 @@ nodeLinker: node-modules
 ### setup Storybook add-on(react-router, chakra-ui, test-runner, a11y)
 
 - reference
-    - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
+  - [Chakra UI + Storybook - Chakra UI](https://chakra-ui.com/getting-started/with-storybook)
 
 - install plugin
 
@@ -1031,9 +1029,9 @@ export const postVisit = async (page: Page): Promise<void> => {
 ### install Storybook MSW addon
 
 - install plugin
-    - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
-        - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
-        - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121)
+  - msw-storybook-addon2.1.xはmsw2.xに対応していないのかエラーが発生する為、カナリヤバージョンを導入
+    - [Breaks on building Storybook · Issue #131 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/131)
+    - [Support for MSW 2.0.0 · Issue #121 · mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon/issues/121)
 
 ```bash
 # yarn add -D msw-storybook-addon
@@ -1208,10 +1206,10 @@ jobs:
 ```
 
 - Set the `CHROMATIC_PROJECT_TOKEN` secret in the repository settings.
-    - `Settings` > `Secrets and variables` > `Actions` > `Secrets` > `New repository secret`
-        - Name: `CHROMATIC_PROJECT_TOKEN`
-        - Secret: `<project-token>`
-    - `Add secret`
+  - `Settings` > `Secrets and variables` > `Actions` > `Secrets` > `New repository secret`
+    - Name: `CHROMATIC_PROJECT_TOKEN`
+    - Secret: `<project-token>`
+  - `Add secret`
 
 ## make directory structure
 

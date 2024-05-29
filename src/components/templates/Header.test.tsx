@@ -1,7 +1,7 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../utils/RenderWithRouter.tsx";
-import { Header } from "./Header.tsx";
+import { renderWithRouter } from "../../utils/RenderWithRouter";
+import { Header } from "./Header";
 
 describe("Header component", () => {
   it("renders logo image", () => {

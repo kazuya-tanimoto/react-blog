@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import { List, ListIcon, ListItem } from "@chakra-ui/react";
 import { FiCheckCircle } from "react-icons/fi";
-import { type NestedListItem } from "../../features/about/types/Career";
+import { type NestedListItem } from "@/types/NestedList";
 
 interface Props {
   spacing: number;

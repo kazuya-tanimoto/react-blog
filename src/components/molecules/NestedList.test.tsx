@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { type NestedListItem } from "../../features/about/types/Career";
+import { type NestedListItem } from "@/types/NestedList";
 import { NestedList } from "./NestedList";
 
 describe("NestedList", () => {

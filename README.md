@@ -122,6 +122,13 @@ yarn add -D vite-tsconfig-paths
 +   },
 ```
 
+## enable ErrorBoundary
+- install plugin
+
+```bash
+yarn add react-error-boundary
+```
+
 ## setup ESLint
 
 - remove `.eslintrc.cjs`

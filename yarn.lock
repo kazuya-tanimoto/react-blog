@@ -4473,6 +4473,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-buddy/ide-toolbox@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@react-buddy/ide-toolbox@npm:2.4.0"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: 39df73bef375f9e5b87bf122132034408dc6382c3d8e2f7fb6899ac554b333b6f47553a98e90072ebacc9098816f71e82e06f78af5890d0af2f723ec3b18c5d0
+  languageName: node
+  linkType: hard
+
+"@react-buddy/palette-chakra-ui@npm:^2.3.1":
+  version: 2.3.2
+  resolution: "@react-buddy/palette-chakra-ui@npm:2.3.2"
+  dependencies:
+    "@react-buddy/ide-toolbox": "npm:^2.4.0"
+  peerDependencies:
+    "@chakra-ui/icons": ^1.1.7
+    "@chakra-ui/react": ^2.2.1
+    react: ^17.0.0 || ^18.0.0
+  checksum: c530e61368da0bf546133b9ef9125482bdcb24a498713087f27d75fa75ca637cf3835fc3a685171787ddf0df69aa6f9f4d656ee580ac148d7240cc2ce3dd6a76
+  languageName: node
+  linkType: hard
+
 "@remix-run/router@npm:1.14.2":
   version: 1.14.2
   resolution: "@remix-run/router@npm:1.14.2"
@@ -14376,6 +14398,8 @@ __metadata:
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
     "@playwright/test": "npm:^1.41.1"
+    "@react-buddy/ide-toolbox": "npm:^2.4.0"
+    "@react-buddy/palette-chakra-ui": "npm:^2.3.1"
     "@storybook/addon-a11y": "npm:^7.6.10"
     "@storybook/addon-essentials": "npm:^7.6.10"
     "@storybook/addon-interactions": "npm:^7.6.10"

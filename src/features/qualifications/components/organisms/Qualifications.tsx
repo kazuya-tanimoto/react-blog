@@ -1,7 +1,46 @@
 import { type JSX, Suspense } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
 import { NestedList } from "@/components/molecules/NestedList";
 
+interface Users {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+}
+
+const sleep = async (ms: number): Promise<never> => {
+  return await new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
+
+const fetchData = async () => {
+  const result = await axios
+    .get<Users[]>("https://jsonplaceholder.typicode.com/users")
+    .then(await sleep(2000));
+
+  return result.data;
+};
 const Fallback = ({ error }: FallbackProps) => {
   console.log(error);
 
@@ -14,6 +53,12 @@ const Fallback = ({ error }: FallbackProps) => {
 };
 
 const QualificationsList = () => {
+  const data = useSuspenseQuery<Users[]>({
+    queryKey: ["qualifications"],
+    queryFn: fetchData,
+  });
+  console.log(data);
+
   const qualifications = [
     { item: "プロジェクトマネージャ(2011/06)" },
     { item: "データベーススペシャリスト(2010/06)" },

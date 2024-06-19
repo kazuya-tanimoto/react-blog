@@ -759,6 +759,45 @@ root != null &&
   );
 ```
 
+## setup React Query
+- install plugin
+
+```bash
+yarn add axios react-query
+yarn add -D @tanstack/eslint-plugin-query @tanstack/react-query-devtools
+```
+
+- edit `main.tsx`
+
+```diff
+ import React from "react";
+ import { ChakraProvider } from "@chakra-ui/react";
++import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
++import { ReactQueryDevtools } from "@tanstack/react-query-devtools/production";
+ import ReactDOM from "react-dom/client";
+ import { BrowserRouter } from "react-router-dom";
+ import App from "./App";
+ import "./index.css";
+ 
++// Create a client
++const queryClient: QueryClient = new QueryClient();
+ 
+ const root = document.getElementById("root");
+ root != null &&
+   ReactDOM.createRoot(root).render(
+     <React.StrictMode>
+       <BrowserRouter>
+         <ChakraProvider>
++          <QueryClientProvider client={queryClient}>
+             <App />
++            <ReactQueryDevtools initialIsOpen={false} />
++          </QueryClientProvider>
+         </ChakraProvider>
+       </BrowserRouter>
+     </React.StrictMode>,
+   );
+```
+
 ## setup Playwright
 
 - install plugin
@@ -990,13 +1029,21 @@ yarn add -D @storybook/test-runner storybook-addon-remix-react-router @chakra-ui
  import type { Preview } from "@storybook/react";
 +import { withRouter } from "storybook-addon-remix-react-router";
 +import { ChakraProvider } from '@chakra-ui/react';
-  ︙
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+initialize();
+
++ // Create a client
++ const queryClient: QueryClient = new QueryClient();
+
 const preview: Preview = {
 + decorators: [
 +   withRouter,
 +   (Story) => (
 +   <ChakraProvider>
-+     <Story />
++     <QueryClientProvider client={queryClient}>
++       <Story />
++     </QueryClientProvider>
 +   </ChakraProvider>
 +   ),
 + ],

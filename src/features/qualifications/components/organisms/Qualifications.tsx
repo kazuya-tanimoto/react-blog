@@ -44,7 +44,7 @@ const fetchData = async () => {
   return result.data;
 };
 
-const Fallback = ({ error }: FallbackProps) => {
+const ErrorFallback = ({ error }: FallbackProps) => {
   console.error(error);
 
   return (
@@ -58,6 +58,16 @@ const Fallback = ({ error }: FallbackProps) => {
       <p>Something went wrong:</p>
       <pre style={{ color: "red" }}>{(error as Error).message}</pre>
     </Box>
+  );
+};
+
+const FallBack = (w: number, lineCount: number) => {
+  return (
+    <Stack w={w} spacing={4} p={4}>
+      {Array.from({ length: lineCount }).map((_, index) => (
+        <Skeleton key={index} h={5} w={`${60 + Math.random() * 40}%`} />
+      ))}
+    </Stack>
   );
 };
 
@@ -86,18 +96,8 @@ const QualificationsList = () => {
 
 export const Qualifications = (): JSX.Element => {
   return (
-    <ErrorBoundary FallbackComponent={Fallback}>
-      <Suspense
-        fallback={
-          <Stack w={80} spacing={4} p={4}>
-            <Skeleton h={5} w="80%" />
-            <Skeleton h={5} width="60%" />
-            <Skeleton h={5} width="90%" />
-            <Skeleton h={5} width="70%" />
-            <Skeleton h={5} width="50%" />
-          </Stack>
-        }
-      >
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Suspense fallback={FallBack(80, 5)}>
         <QualificationsList />
       </Suspense>
     </ErrorBoundary>

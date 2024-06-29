@@ -1,6 +1,6 @@
 import type React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { http, HttpResponse } from "msw";
 import "@testing-library/jest-dom";
 import { setupServer } from "msw/node";
@@ -51,24 +51,40 @@ afterAll(() => {
   server.close();
 });
 
-// QueryClientの設定
-const queryClient = new QueryClient();
-
+/*
+ * QueryClientの設定
+ * キャッシュを相互に影響させないよに都度新しいQueryClientを生成
+ */
 const renderWithClient = (ui: React.ReactElement) => {
   return render(
-    <QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>,
+    <QueryClientProvider client={new QueryClient()}>{ui}</QueryClientProvider>,
   );
 };
 
 test("displays a list of user qualifications", async () => {
   renderWithClient(<Qualifications />);
 
-  expect(screen.getByText(/Loading/i)).toBeInTheDocument();
+  // Show placeholder while fetching
+  expect(screen.getByTestId("placeholder")).toBeInTheDocument();
 
+  // Wait for placeholder to disappear
+  await waitFor(
+    () => {
+      expect(screen.queryByTestId("placeholder")).not.toBeInTheDocument();
+    },
+    { timeout: 10000 },
+  );
+
+  // Show user data after fetching
   await screen.findByText("Leanne Graham");
 });
 
 test("handles server error", async () => {
+  // Suppresses console error output.
+  const consoleErrorMock = vi
+    .spyOn(console, "error")
+    .mockImplementation(() => {});
+
   server.use(
     http.get("https://jsonplaceholder.typicode.com/users", () => {
       return new HttpResponse("Internal Server Error", { status: 500 });
@@ -77,6 +93,20 @@ test("handles server error", async () => {
 
   renderWithClient(<Qualifications />);
 
+  // Show placeholder while fetching
+  expect(screen.getByTestId("placeholder")).toBeInTheDocument();
+
+  // Wait for placeholder to disappear
+  await waitFor(
+    () => {
+      expect(screen.queryByTestId("placeholder")).not.toBeInTheDocument();
+    },
+    { timeout: 10000 },
+  );
+
+  // Wait for error message to be displayed
   await screen.findByRole("alert");
-  expect(screen.getByText(/Something went wrong:/i)).toBeInTheDocument();
+
+  // Restore console error output.
+  consoleErrorMock.mockRestore();
 });

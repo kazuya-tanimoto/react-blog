@@ -36,7 +36,7 @@ const sleep = async (ms: number): Promise<void> => {
 };
 
 const fetchData = async () => {
-  await sleep(1000); // Delay for 2 seconds
+  await sleep(1000); // Delay for 1 seconds
   const result = await axios.get<Users[]>(
     "https://jsonplaceholder.typicode.com/users",
   );
@@ -45,8 +45,6 @@ const fetchData = async () => {
 };
 
 const ErrorFallback = ({ error }: FallbackProps) => {
-  console.error(error);
-
   return (
     <Box
       role="alert"
@@ -63,7 +61,7 @@ const ErrorFallback = ({ error }: FallbackProps) => {
 
 const FallBack = (w: number, lineCount: number) => {
   return (
-    <Stack w={w} spacing={4} p={4}>
+    <Stack data-testid="placeholder" w={w} spacing={4} p={4}>
       {Array.from({ length: lineCount }).map((_, index) => (
         <Skeleton key={index} h={5} w={`${60 + Math.random() * 40}%`} />
       ))}
@@ -75,6 +73,7 @@ const QualificationsList = () => {
   const { data } = useSuspenseQuery<Users[]>({
     queryKey: ["qualifications"],
     queryFn: fetchData,
+    retry: false,
   });
 
   const qualifications = data.map((user) => {

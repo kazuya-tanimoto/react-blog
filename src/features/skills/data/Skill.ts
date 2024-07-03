@@ -73,10 +73,11 @@ export const skills: SkillCategory[] = [
   },
   {
     category: "Frameworks / Libraries",
+
     items: [
       {
         name: "Laravel",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
         years: 7,
       },
       {
@@ -96,7 +97,7 @@ export const skills: SkillCategory[] = [
       },
       {
         name: "Django",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
         years: 3,
       },
       {
@@ -130,7 +131,22 @@ export const skills: SkillCategory[] = [
     category: "Tools",
     items: [
       {
-        name: "Google Apps Script",
+        name: "JetBrains",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg",
+        years: 6,
+      },
+      {
+        name: "Neovim",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neovim/neovim-original.svg",
+        years: 6,
+      },
+      {
+        name: "Docker",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+        years: 6,
+      },
+      {
+        name: "GAS",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
         years: 6,
       },

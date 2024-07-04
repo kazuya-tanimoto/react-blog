@@ -116,21 +116,14 @@
     "vitest": "^1.2.1"
   },
   "lint-staged": {
-    "{src,tests}/**/*.{js,ts}": [
-      "prettier --write --loglevel=warn",
+    "{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}": [
+      "prettier --write --loglevel=warn"
+    ],
+    "{src,tests}/**/*.{js,ts,jsx,tsx}": [
       "eslint --fix --quiet"
     ],
-    "{src,tests}/**/*.{jsx,tsx}": [
-      "prettier --write --loglevel=warn",
-      "eslint --fix --quiet",
+    "{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}": [
       "stylelint --fix --quiet"
-    ],
-    "{src,tests}/**/*.{html,css,less,sass,scss}": [
-      "prettier --write --loglevel=warn",
-      "stylelint --fix --quiet"
-    ],
-    "{src,tests}/**/*.{json,gql,graphql}": [
-      "prettier --write --loglevel=warn"
     ]
   },
   "simple-git-hooks": {

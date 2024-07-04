@@ -2,7 +2,7 @@ import { type JSX } from "react";
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import { type Skill } from "@/features/skills/types/Skill";
 
-export const SkillItem = ({ name, icon, years }: Skill): JSX.Element => {
+export const SkillBar = ({ name, icon, years }: Skill): JSX.Element => {
   const progressValue = Math.min(years, 10) * 10;
   const displayYears = years >= 10 ? "10y+" : `${years}y+`;
 

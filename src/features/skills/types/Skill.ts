@@ -4,7 +4,7 @@ export interface Skill {
   years: number;
 }
 
-export interface SkillCategory {
+export interface SkillSet {
   category: string;
   items: Skill[];
 }

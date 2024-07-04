@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SkillList } from "@/features/skills/components/organisms/SkillList";
+import { SkillSetBar } from "@/features/skills/components/organisms/SkillSetBar";
 import { skills } from "@/features/skills/data/Skill";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "skills/organisms/SkillList",
-  component: SkillList,
+  title: "skills/organisms/SkillSetBar",
+  component: SkillSetBar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -16,7 +16,7 @@ const meta = {
   // argTypes: {
   //   backgroundColor: { control: "color" },
   // }        // rounded="md",
-} satisfies Meta<typeof SkillList>;
+} satisfies Meta<typeof SkillSetBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

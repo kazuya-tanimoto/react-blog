@@ -1,6 +1,6 @@
-import type { SkillCategory } from "@/features/skills/types/Skill";
+import type { SkillSet } from "@/features/skills/types/Skill";
 
-export const skills: SkillCategory[] = [
+export const skills: SkillSet[] = [
   {
     category: "OS / Middleware",
     items: [

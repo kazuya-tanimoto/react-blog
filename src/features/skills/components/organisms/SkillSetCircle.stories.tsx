@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SkillItem } from "./SkillItem";
+import { SkillSetCircle } from "@/features/skills/components/organisms/SkillSetCircle";
+import { skills } from "@/features/skills/data/Skill";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "skills/molecules/SkillItem",
-  component: SkillItem,
+  title: "skills/organisms/SkillSetCircle",
+  component: SkillSetCircle,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -15,33 +16,15 @@ const meta = {
   // argTypes: {
   //   backgroundColor: { control: "color" },
   // }        // rounded="md",
-} satisfies Meta<typeof SkillItem>;
+} satisfies Meta<typeof SkillSetCircle>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 
-export const ReactJS: Story = {
+export const Default: Story = {
   args: {
-    name: "ReactJS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    years: 2,
-  },
-};
-
-export const Flask: Story = {
-  args: {
-    name: "Flask",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg",
-    years: 1,
-  },
-};
-
-export const LongName: Story = {
-  args: {
-    name: "Amazon Web Services",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    years: 2,
+    skills,
   },
 };

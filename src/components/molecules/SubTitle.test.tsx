@@ -1,4 +1,3 @@
-// src/features/about/components/molecules/SubTitle.test.tsx
 import { render, screen } from "@testing-library/react";
 import { SubTitle } from "./SubTitle";
 

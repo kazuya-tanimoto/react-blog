@@ -1,17 +1,21 @@
 import { type JSX } from "react";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
+import { SubTitle } from "@/components/molecules/SubTitle";
 import { SkillBar } from "@/features/skills/components/molecules/SkillBar";
 import { skills } from "@/features/skills/data/Skill";
 
 export const SkillSetBar = (): JSX.Element => (
-  <Box className="container mx-auto py-10">
-    <Heading size="xl" color="gray.600">
-      Skills
-    </Heading>
-    <Flex direction="column" gap={8}>
+  <Flex direction="column" gap={4}>
+    <SubTitle lineItems={4}>Skills</SubTitle>
+    <Flex direction="column" gap={12}>
       {skills.map((skill, index) => (
-        <Flex key={index} direction="column" gap={2}>
-          <Heading as="h2" size="lg" mb={4} color="gray.600">
+        <Flex key={index} direction="column" gap={4}>
+          <Heading
+            as="h2"
+            size="lg"
+            color="gray.600"
+            textAlign={{ base: "center", sm: "left" }}
+          >
             {skill.category}
           </Heading>
           <Flex direction="column" gap={5}>
@@ -27,5 +31,5 @@ export const SkillSetBar = (): JSX.Element => (
         </Flex>
       ))}
     </Flex>
-  </Box>
+  </Flex>
 );

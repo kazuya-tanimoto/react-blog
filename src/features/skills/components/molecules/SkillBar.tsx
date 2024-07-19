@@ -9,7 +9,7 @@ export const SkillBar = ({ name, icon, years }: Skill): JSX.Element => {
   return (
     <Flex alignItems="center" gap={4}>
       <Image src={icon} alt={name} boxSize={16} />
-      <Flex direction="column" gap={0}>
+      <Flex direction="column" gap={0} w={{ base: "100%", sm: 96 }}>
         <Text fontSize="xl" fontWeight="semibold" color="gray.600" ml={0.5}>
           {name}
         </Text>
@@ -17,7 +17,7 @@ export const SkillBar = ({ name, icon, years }: Skill): JSX.Element => {
           <Box
             bg="gray.200"
             h={5}
-            w={96}
+            w="100%"
             rounded="full"
             position="relative"
             mr={2}

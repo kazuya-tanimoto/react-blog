@@ -16,7 +16,7 @@ export const SubTitle = ({
 
   return (
     <Flex justifyContent="center" direction="column" gap={1}>
-      <Heading as="h2" size="lg" textAlign="center">
+      <Heading as="h2" size="xl" textAlign="center" color="gray.600">
         {children}
       </Heading>
       <Flex justifyContent="center" gap={1}>

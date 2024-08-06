@@ -30,7 +30,7 @@ export const CareerItem = ({
         gap={{ base: 0, sm: 2 }}
         minH={125}
         align="center"
-        _hover={{ opacity: 0.8, cursor: "pointer" }}
+        _hover={{ opacity: 0.7, cursor: "pointer" }}
       >
         <DateRange color={color} from={from} to={to} />
         <ProjectSummary title={title} summary={summary} keywords={keywords} />

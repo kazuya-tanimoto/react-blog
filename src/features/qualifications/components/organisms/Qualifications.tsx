@@ -4,6 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
 import { NestedList } from "@/components/molecules/NestedList";
+import { sleep } from "@/lib/sleep";
 
 interface Users {
   id: number;
@@ -28,12 +29,6 @@ interface Users {
     bs: string;
   };
 }
-
-const sleep = async (ms: number): Promise<void> => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-};
 
 const fetchData = async () => {
   await sleep(1000); // Delay for 1 seconds
@@ -76,17 +71,17 @@ const QualificationsList = () => {
     retry: false,
   });
 
-  const qualifications = data.map((user) => {
+  let qualifications = data.map((user) => {
     return { item: user.name };
   });
 
-  // qualifications = [
-  //   { item: "プロジェクトマネージャ(2011/06)" },
-  //   { item: "データベーススペシャリスト(2010/06)" },
-  //   { item: "OracleSilver 10g(2010/01)" },
-  //   { item: "システムアーキテクト(2009/12)" },
-  //   { item: "ソフトウェア開発技術者(2008/12)" },
-  // ];
+  qualifications = [
+    { item: "プロジェクトマネージャ(2011/06)" },
+    { item: "データベーススペシャリスト(2010/06)" },
+    { item: "OracleSilver 10g(2010/01)" },
+    { item: "システムアーキテクト(2009/12)" },
+    { item: "ソフトウェア開発技術者(2008/12)" },
+  ];
 
   return (
     <NestedList spacing={4} color="green.500" listItems={qualifications} />

@@ -1,9 +1,9 @@
-import type React from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { render, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { http, HttpResponse } from "msw";
 import "@testing-library/jest-dom";
 import { setupServer } from "msw/node";
+import { NewQueryClientProvider } from "@/utils/NewQueryClientProvider";
+import { renderWithRouter } from "@/utils/RenderWithRouter";
 import { Qualifications } from "./Qualifications";
 
 // モックAPIハンドラーを定義
@@ -51,18 +51,12 @@ afterAll(() => {
   server.close();
 });
 
-/*
- * QueryClientの設定
- * キャッシュを相互に影響させないよに都度新しいQueryClientを生成
- */
-const renderWithClient = (ui: React.ReactElement) => {
-  return render(
-    <QueryClientProvider client={new QueryClient()}>{ui}</QueryClientProvider>,
-  );
-};
-
 test("displays a list of user qualifications", async () => {
-  renderWithClient(<Qualifications />);
+  renderWithRouter(
+    <NewQueryClientProvider>
+      <Qualifications />
+    </NewQueryClientProvider>,
+  );
 
   // Show placeholder while fetching
   expect(screen.getByTestId("placeholder")).toBeInTheDocument();
@@ -76,7 +70,7 @@ test("displays a list of user qualifications", async () => {
   );
 
   // Show user data after fetching
-  await screen.findByText("Leanne Graham");
+  await screen.findByText("プロジェクトマネージャ(2011/06)");
 });
 
 test("handles server error", async () => {
@@ -91,7 +85,11 @@ test("handles server error", async () => {
     }),
   );
 
-  renderWithClient(<Qualifications />);
+  renderWithRouter(
+    <NewQueryClientProvider>
+      <Qualifications />
+    </NewQueryClientProvider>,
+  );
 
   // Show placeholder while fetching
   expect(screen.getByTestId("placeholder")).toBeInTheDocument();

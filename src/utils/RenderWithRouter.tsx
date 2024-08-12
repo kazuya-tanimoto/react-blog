@@ -12,7 +12,6 @@ export const renderWithRouter = (
   const renderResult = render(ui, { wrapper: BrowserRouter });
 
   return {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     user: userEvent,
     renderResult,
   };

@@ -1,9 +1,9 @@
 import { type JSX, Suspense } from "react";
-import { Skeleton, Box, Stack } from "@chakra-ui/react";
+import { Skeleton, Stack } from "@chakra-ui/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
 import { NestedList } from "@/components/molecules/NestedList";
+import { ErrorBoundaryWrapper } from "@/components/organisms/ErrorBoundaryWrapper";
 import { sleep } from "@/lib/sleep";
 
 interface Users {
@@ -37,21 +37,6 @@ const fetchData = async () => {
   );
 
   return result.data;
-};
-
-const ErrorFallback = ({ error }: FallbackProps) => {
-  return (
-    <Box
-      role="alert"
-      p={4}
-      borderWidth={1}
-      borderRadius="md"
-      borderColor="red.500"
-    >
-      <p>Something went wrong:</p>
-      <pre style={{ color: "red" }}>{(error as Error).message}</pre>
-    </Box>
-  );
 };
 
 const FallBack = (w: number, lineCount: number) => {
@@ -90,10 +75,10 @@ const QualificationsList = () => {
 
 export const Qualifications = (): JSX.Element => {
   return (
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
+    <ErrorBoundaryWrapper>
       <Suspense fallback={FallBack(80, 5)}>
         <QualificationsList />
       </Suspense>
-    </ErrorBoundary>
+    </ErrorBoundaryWrapper>
   );
 };

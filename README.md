@@ -798,6 +798,12 @@ yarn add -D @tanstack/eslint-plugin-query @tanstack/react-query-devtools
    );
 ```
 
+## enable Masonry Layout
+- install plugin
+```bash
+yarn add react-masonry-css
+```
+
 ## setup Playwright
 
 - install plugin

@@ -3,32 +3,42 @@ import { renderWithRouter } from "@/utils/RenderWithRouter";
 import { BlogCard } from "./BlogCard";
 
 describe("BlogCard", () => {
-  it("renders the image", () => {
-    renderWithRouter(<BlogCard />);
-    expect(screen.getByRole("img")).toBeInTheDocument();
+  const mockProps = {
+    id: 1,
+    title: "Test Title",
+    content: "Test Content",
+    tags: ["tag1", "tag2"],
+    image: "test.jpg",
+    alt: "Test Image",
+  };
+
+  it("renders the image with correct src and alt", () => {
+    renderWithRouter(<BlogCard {...mockProps} />);
+    const image = screen.getByRole("img");
+    expect(image).toBeInTheDocument();
+    expect(image).toHaveAttribute("src", mockProps.image);
+    expect(image).toHaveAttribute("alt", mockProps.alt);
   });
 
-  it("renders the title", () => {
-    renderWithRouter(<BlogCard />);
-    expect(screen.getByText("Blog Content Title")).toBeInTheDocument();
+  it("renders the title correctly", () => {
+    renderWithRouter(<BlogCard {...mockProps} />);
+    expect(screen.getByText(mockProps.title)).toBeInTheDocument();
   });
 
-  it("renders the content", () => {
-    renderWithRouter(<BlogCard />);
-    expect(
-      screen.getByText(/Lorem ipsum dolor sit amet,/i),
-    ).toBeInTheDocument();
-  });
-
-  it("renders the link", () => {
-    renderWithRouter(<BlogCard />);
-    expect(screen.getByRole("link")).toHaveAttribute("href", "/blog");
+  it("renders the content correctly", () => {
+    renderWithRouter(<BlogCard {...mockProps} />);
+    expect(screen.getByText(mockProps.content)).toBeInTheDocument();
   });
 
   it("renders the correct number of tags", () => {
-    renderWithRouter(<BlogCard />);
-    const tagCount = screen.getAllByText(/#tag\d/).length;
-    expect(tagCount).toBeGreaterThanOrEqual(1);
-    expect(tagCount).toBeLessThanOrEqual(5);
+    renderWithRouter(<BlogCard {...mockProps} />);
+    const tags = screen.getAllByText(/tag\d/);
+    expect(tags).toHaveLength(mockProps.tags.length);
+  });
+
+  it("renders the link with correct href", () => {
+    renderWithRouter(<BlogCard {...mockProps} />);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("href", `/blog${mockProps.id}`);
   });
 });

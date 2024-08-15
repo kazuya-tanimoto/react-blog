@@ -12,5 +12,12 @@ type Story = StoryObj<typeof meta>;
 
 export const BlogCardStory: Story = {
   name: "Default",
-  args: {},
+  args: {
+    id: 1,
+    title: "Blog Post 1",
+    content: "This is a blog post.",
+    tags: ["tag1", "tag2"],
+    image: "https://picsum.photos/500/500",
+    alt: "Placeholder",
+  },
 };

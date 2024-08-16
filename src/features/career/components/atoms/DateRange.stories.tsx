@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ModalContentTitle } from "./ModalContentTitle";
+import { Career as data } from "@/features/career/data/Career";
+import { DateRange } from "./DateRange";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "about/atoms/ModalContentTitle",
-  component: ModalContentTitle,
+  title: "career/atoms/DateRange",
+  component: DateRange,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -15,31 +16,32 @@ const meta = {
   // argTypes: {
   //   backgroundColor: { control: "color" },
   // }        // rounded="md",
-} satisfies Meta<typeof ModalContentTitle>;
+} satisfies Meta<typeof DateRange>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const colors = ["blue.600", "purple.800", "yellow.700"];
-const titles = ["概要", "担当業務", "利用技術とツール"];
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Blue: Story = {
   args: {
     color: colors[0],
-    children: titles[0],
+    from: data[0].from,
   },
 };
 
 export const Purple: Story = {
   args: {
     color: colors[1],
-    children: titles[1],
+    from: data[1].from,
+    to: data[1].to,
   },
 };
 export const Yellow: Story = {
   args: {
     color: colors[2],
-    children: titles[2],
+    from: data[2].from,
+    to: data[2].to,
   },
 };

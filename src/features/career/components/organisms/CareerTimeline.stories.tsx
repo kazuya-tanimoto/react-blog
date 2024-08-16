@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Career as data } from "../../data/Career";
+import { Career as data } from "@/features/career/data/Career";
 import { CareerTimeline } from "./CareerTimeline";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "about/organisms/CareerTimeline",
+  title: "career/organisms/CareerTimeline",
   component: CareerTimeline,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

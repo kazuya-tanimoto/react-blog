@@ -1345,7 +1345,12 @@ touch src/features/blog/components/templates/.gitkeep
 touch src/features/blog/components/pages/.gitkeep
 
 cp -rp src/features/blog src/features/about
+cp -rp src/features/blog src/features/career
 cp -rp src/features/blog src/features/contact
+cp -rp src/features/blog src/features/qualifications
+cp -rp src/features/blog src/features/skills
+cp -rp src/features/blog src/features/works
+
 ```
 
 - edit `.eslintrc.json`

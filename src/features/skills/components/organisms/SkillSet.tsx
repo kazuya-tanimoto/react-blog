@@ -1,10 +1,10 @@
 import { type JSX } from "react";
 import { Flex, Heading } from "@chakra-ui/react";
 import { SubTitle } from "@/components/molecules/SubTitle";
-import { useScreenResolution } from "@/features/about/hooks/useScreenResolution";
 import { SkillBar } from "@/features/skills/components/molecules/SkillBar";
 import { SkillCircle } from "@/features/skills/components/molecules/SkillCircle";
 import { skills } from "@/features/skills/data/Skill";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 
 export const SkillSet = (): JSX.Element => {
   const { isBase } = useScreenResolution();

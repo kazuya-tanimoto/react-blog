@@ -7,10 +7,10 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useScreenResolution } from "../../hooks/useScreenResolution";
-import type { CareerItems } from "../../types/Career";
-import { CareerItem } from "../molecules/CareerItem";
-import { CareerItemNumber } from "../molecules/CareerItemNumber";
+import { CareerItem } from "@/features/career/components/molecules/CareerItem";
+import { CareerItemNumber } from "@/features/career/components/molecules/CareerItemNumber";
+import type { CareerItems } from "@/features/career/types/Career";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import { CareerDetailModal } from "./CareerDetailModal";
 
 const colors = ["blue.600", "purple.800", "yellow.700"];

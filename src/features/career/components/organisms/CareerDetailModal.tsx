@@ -10,9 +10,9 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 import { NestedList } from "@/components/molecules/NestedList";
-import { CareerDetailData as data } from "../../data/Career";
-import { ModalContentText as ContentText } from "../atoms/ModalContentText";
-import { ModalContentTitle as Title } from "../atoms/ModalContentTitle";
+import { ModalContentText as ContentText } from "@/features/career/components/atoms/ModalContentText";
+import { ModalContentTitle as Title } from "@/features/career/components/atoms/ModalContentTitle";
+import { CareerDetailData as data } from "@/features/career/data/Career";
 
 export interface CareerDetailModalProps {
   isOpen: boolean;

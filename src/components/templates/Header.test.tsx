@@ -1,6 +1,6 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../utils/RenderWithRouter";
+import { renderWithRouter } from "@/utils/RenderWithRouter";
 import { Header } from "./Header";
 
 describe("Header component", () => {

@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import { Flex, Text } from "@chakra-ui/react";
-import { useScreenResolution } from "../../features/about/hooks/useScreenResolution";
-import { NavigationLinks } from "../molecules/NavigationLinks";
+import { NavigationLinks } from "@/components/molecules/NavigationLinks";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 
 export const Footer = (): JSX.Element => {
   const { isBase } = useScreenResolution();

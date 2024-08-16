@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../utils/RenderWithRouter";
+import { renderWithRouter } from "@/utils/RenderWithRouter";
 import { Footer } from "./Footer";
 
 describe("Footer", () => {

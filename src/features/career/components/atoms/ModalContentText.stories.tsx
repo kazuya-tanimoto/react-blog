@@ -3,7 +3,7 @@ import { ModalContentText } from "./ModalContentText";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "about/atoms/ModalContentText",
+  title: "career/atoms/ModalContentText",
   component: ModalContentText,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

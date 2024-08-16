@@ -8,7 +8,7 @@ import {
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "about/organisms/CareerDetailModal",
+  title: "career/organisms/CareerDetailModal",
   component: CareerDetailModal,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

@@ -1,6 +1,6 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { Career as data } from "../../data/Career";
+import { Career as data } from "@/features/career/data/Career";
 import { CareerTimeline } from "./CareerTimeline";
 
 describe("CareerTimeline component", () => {

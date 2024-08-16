@@ -1,4 +1,7 @@
-import { type CareerDetail, type CareerItem } from "../types/Career";
+import {
+  type CareerDetail,
+  type CareerItem,
+} from "@/features/career/types/Career";
 
 export const Career: CareerItem[] = [
   {

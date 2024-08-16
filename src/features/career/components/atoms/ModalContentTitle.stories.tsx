@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Career as data } from "../../data/Career";
-import { CareerItem } from "./CareerItem";
+import { ModalContentTitle } from "./ModalContentTitle";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "about/molecules/CareerItem",
-  component: CareerItem,
+  title: "career/atoms/ModalContentTitle",
+  component: ModalContentTitle,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -16,25 +15,31 @@ const meta = {
   // argTypes: {
   //   backgroundColor: { control: "color" },
   // }        // rounded="md",
-} satisfies Meta<typeof CareerItem>;
+} satisfies Meta<typeof ModalContentTitle>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-
 const colors = ["blue.600", "purple.800", "yellow.700"];
+const titles = ["概要", "担当業務", "利用技術とツール"];
 
-export const FirstItem: Story = {
-  args: { ...data[0], color: colors[0] },
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const Blue: Story = {
+  args: {
+    color: colors[0],
+    children: titles[0],
+  },
 };
 
-export const SecondItem: Story = {
-  args: { ...data[1], color: colors[1] },
+export const Purple: Story = {
+  args: {
+    color: colors[1],
+    children: titles[1],
+  },
 };
-export const ThirdItem: Story = {
-  args: { ...data[2], color: colors[2] },
-};
-export const LongString: Story = {
-  args: { ...data[3], color: colors[0] },
+export const Yellow: Story = {
+  args: {
+    color: colors[2],
+    children: titles[2],
+  },
 };

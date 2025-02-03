@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+    labels:
+      - "dependencies"
+      - "security"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    # セキュリティ更新のみを自動化
+    security-updates-only: true
+    # PRを作成する前にテストを実行
+    auto-merge: false
+    require-tests: true

@@ -1,4 +1,38 @@
-# Logs
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml
+
+# Dependencies
+node_modules/
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Testing
+/coverage
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+
+# Production
+/dist
+/dist-ssr
+/storybook-static
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Misc
+*.local
+.DS_Store
 logs
 *.log
 npm-debug.log*
@@ -6,28 +40,3 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-storybook-static/*
-.env
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-
-#.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/coverage/

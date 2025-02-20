@@ -114,7 +114,7 @@
     "typescript": "*",
     "vite": "^5.0.12",
     "vite-tsconfig-paths": "^4.3.1",
-    "vitest": "^1.2.1"
+    "vitest": "^1.6.1"
   },
   "lint-staged": {
     "{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}": [

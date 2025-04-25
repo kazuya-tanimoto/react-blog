@@ -7,14 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint:es": "eslint '{src,tests}/**/*.{js,jsx,ts,tsx}'",
-    "lint:es:fix": "eslint --fix '{src,tests}/**/*.{js,jsx,ts,tsx}'",
-    "lint:style": "stylelint '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-    "lint:style:fix": "stylelint --fix '{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}'",
-    "lint": "npm run --silent lint:style; npm run --silent lint:es",
-    "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
-    "pretty": "prettier --write --log-level=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
-    "fix": "npm run --silent format; npm run --silent lint:fix",
+    "check": "biome check {src,tests}/**/*.{js,jsx,ts,tsx,html,css,less,sass,scss}",
+    "check:ts": "tsc --noEmit",
+    "check:all": "yarn check:ts && yarn check",
+    "fix": "biome check --write {src,tests}/**/*.{js,jsx,ts,tsx,html,css,less,sass,scss}",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest --coverage",
@@ -48,6 +44,7 @@
     "react-router-dom": "^6.21.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@chakra-ui/storybook-addon": "^5.1.0",
     "@playwright/test": "^1.41.1",
     "@storybook/addon-a11y": "^7.6.10",
@@ -60,72 +57,38 @@
     "@storybook/react-vite": "^7.6.10",
     "@storybook/test": "^7.6.10",
     "@storybook/test-runner": "^0.16.0",
-    "@tanstack/eslint-plugin-query": "^5.43.1",
     "@tanstack/react-query-devtools": "^5.45.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/eslint": "^8.56.2",
-    "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/jsdom": "^21.1.6",
     "@types/lint-staged": "^13.3.0",
     "@types/node": "^20.11.6",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.0.6",
     "@vitest/ui": "^3.0.6",
     "axe-playwright": "^2.0.1",
     "chromatic": "^10.5.2",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest-dom": "^5.1.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-testing-library": "^6.2.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.0",
     "msw": "^2.1.5",
     "msw-storybook-addon": "2.0.0--canary.122.b3ed3b1.0",
     "playwright": "^1.41.1",
-    "postcss": "^8.4.33",
-    "postcss-html": "^1.6.0",
-    "postcss-jsx": "^0.36.4",
-    "postcss-syntax": "^0.36.2",
-    "prettier": "^3.2.4",
     "simple-git-hooks": "^2.9.0",
     "storybook": "^7.6.10",
     "storybook-addon-remix-react-router": "^3.0.0",
-    "stylelint": "^16.2.0",
-    "stylelint-config-recess-order": "^4.4.0",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-order": "^6.0.4",
     "typescript": "*",
     "vite": "^6.1.1",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.6"
   },
   "lint-staged": {
-    "{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}": [
-      "prettier --write --loglevel=warn"
-    ],
-    "{src,tests}/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix --quiet"
-    ],
-    "{src,tests}/**/*.{html,css,less,sass,scss,jsx,tsx}": [
-      "stylelint --fix --quiet"
+    "{src,tests}/**/*.{js,jsx,ts,tsx,css,less,sass,scss.json}": [
+      "biome check --apply",
+      "biome format --write"
     ]
   },
   "simple-git-hooks": {
@@ -133,8 +96,6 @@
   },
   "packageManager": "yarn@4.0.2",
   "msw": {
-    "workerDirectory": [
-      "public"
-    ]
+    "workerDirectory": ["public"]
   }
 }

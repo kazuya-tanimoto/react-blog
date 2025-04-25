@@ -1,5 +1,5 @@
-import { type JSX, type ReactNode } from "react";
 import { Box } from "@chakra-ui/react";
+import type { JSX, ReactNode } from "react";
 import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
 
 const ErrorFallbackContent = ({ error }: FallbackProps): JSX.Element => {

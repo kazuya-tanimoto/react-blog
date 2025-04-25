@@ -1,6 +1,6 @@
-import { type JSX } from "react";
 import { Icon } from "@chakra-ui/icons";
 import { Circle } from "@chakra-ui/react";
+import type { JSX } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
 
 const lineStyle = {

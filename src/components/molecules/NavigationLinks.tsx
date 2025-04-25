@@ -1,5 +1,5 @@
-import { type JSX } from "react";
 import { Flex, Link } from "@chakra-ui/react";
+import type { JSX } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 export const NavigationLinks = (): JSX.Element => {

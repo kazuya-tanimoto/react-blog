@@ -1,16 +1,16 @@
-import { type JSX, useState } from "react";
-import {
-  Flex,
-  List,
-  ListItem,
-  Box,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
 import { CareerItem } from "@/features/career/components/molecules/CareerItem";
 import { CareerItemNumber } from "@/features/career/components/molecules/CareerItemNumber";
 import type { CareerItems } from "@/features/career/types/Career";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
+import {
+  Box,
+  Flex,
+  List,
+  ListItem,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { type JSX, useState } from "react";
 import { CareerDetailModal } from "./CareerDetailModal";
 
 const colors = ["blue.600", "purple.800", "yellow.700"];

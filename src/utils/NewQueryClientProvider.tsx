@@ -1,5 +1,5 @@
-import { type JSX, type ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { JSX, ReactNode } from "react";
 
 /*
  * QueryClientの設定

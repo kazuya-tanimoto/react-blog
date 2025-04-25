@@ -1,6 +1,6 @@
-import { type JSX } from "react";
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { type Skill } from "@/features/skills/types/Skill";
+import type { Skill } from "@/features/skills/types/Skill";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import type { JSX } from "react";
 
 export const SkillBar = ({ name, icon, years }: Skill): JSX.Element => {
   const progressValue = Math.min(years, 10) * 10;

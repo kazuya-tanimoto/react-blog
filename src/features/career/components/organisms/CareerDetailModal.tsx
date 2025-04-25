@@ -1,4 +1,7 @@
-import { type JSX } from "react";
+import { NestedList } from "@/components/molecules/NestedList";
+import { ModalContentText as ContentText } from "@/features/career/components/atoms/ModalContentText";
+import { ModalContentTitle as Title } from "@/features/career/components/atoms/ModalContentTitle";
+import { CareerDetailData as data } from "@/features/career/data/Career";
 import {
   Button,
   Modal,
@@ -9,10 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { NestedList } from "@/components/molecules/NestedList";
-import { ModalContentText as ContentText } from "@/features/career/components/atoms/ModalContentText";
-import { ModalContentTitle as Title } from "@/features/career/components/atoms/ModalContentTitle";
-import { CareerDetailData as data } from "@/features/career/data/Career";
+import type { JSX } from "react";
 
 export interface CareerDetailModalProps {
   isOpen: boolean;

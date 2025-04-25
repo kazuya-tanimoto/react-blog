@@ -1,5 +1,5 @@
-import { type Meta, type StoryObj } from "@storybook/react";
 import { skills } from "@/features/skills/data/Skill";
+import type { Meta, StoryObj } from "@storybook/react";
 import { SkillSet } from "./SkillSet";
 
 const meta = {

@@ -1,5 +1,5 @@
-import { type JSX, type ReactNode } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
+import type { JSX, ReactNode } from "react";
 
 const DefaultLineItems = 6;
 
@@ -24,6 +24,7 @@ export const SubTitle = ({
           .fill(undefined)
           .map((_, index) => (
             <Box
+              // biome-ignore lint/suspicious/noArrayIndexKey:The list is static and does not change, so using index as key is safe.
               key={index}
               w={6}
               h={1}

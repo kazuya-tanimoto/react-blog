@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import { SkillCircle } from "@/features/skills/components/molecules/SkillCircle";
+import { render, screen } from "@testing-library/react";
 
 describe("SkillCircle", () => {
   const skill = {

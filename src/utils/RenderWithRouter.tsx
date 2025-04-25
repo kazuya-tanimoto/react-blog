@@ -1,6 +1,6 @@
-import type React from "react";
-import { render, type RenderResult } from "@testing-library/react";
+import { type RenderResult, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import type React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 export const renderWithRouter = (

@@ -1,5 +1,5 @@
-import { screen } from "@testing-library/react";
 import { renderWithRouter } from "@/utils/RenderWithRouter";
+import { screen } from "@testing-library/react";
 import { BlogCard } from "./BlogCard";
 
 describe("BlogCard", () => {

@@ -1,4 +1,4 @@
-import { type NestedListItem } from "@/types/NestedList";
+import type { NestedListItem } from "@/types/NestedList";
 
 export interface CareerItem {
   id: number;

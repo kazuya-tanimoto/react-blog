@@ -1,7 +1,7 @@
-import { type JSX } from "react";
+import type { NestedListItem } from "@/types/NestedList";
 import { List, ListIcon, ListItem } from "@chakra-ui/react";
+import type { JSX } from "react";
 import { FiCheckCircle } from "react-icons/fi";
-import { type NestedListItem } from "@/types/NestedList";
 
 interface Props {
   spacing: number;
@@ -16,6 +16,7 @@ export const NestedList = ({
   return (
     <List spacing={spacing} mb={spacing} ml={spacing}>
       {listItems.map((item, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey:The list is static and does not change, so using index as key is safe.
         <ListItem key={index} color="gray.700">
           <ListIcon as={FiCheckCircle} color={color} />
           {item.item}

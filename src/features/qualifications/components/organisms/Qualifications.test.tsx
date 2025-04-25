@@ -1,9 +1,9 @@
-import { screen, waitFor } from "@testing-library/react";
-import { http, HttpResponse } from "msw";
-import "@testing-library/jest-dom";
-import { setupServer } from "msw/node";
 import { NewQueryClientProvider } from "@/utils/NewQueryClientProvider";
 import { renderWithRouter } from "@/utils/RenderWithRouter";
+import "@testing-library/jest-dom";
+import { screen, waitFor } from "@testing-library/react";
+import { http, HttpResponse } from "msw";
+import { setupServer } from "msw/node";
 import { Qualifications } from "./Qualifications";
 
 // モックAPIハンドラーを定義

@@ -1,7 +1,7 @@
-import { useBreakpointValue } from "@chakra-ui/react";
-import { render, screen } from "@testing-library/react";
 import { SkillSet } from "@/features/skills/components/organisms/SkillSet";
 import { skills } from "@/features/skills/data/Skill";
+import { useBreakpointValue } from "@chakra-ui/react";
+import { render, screen } from "@testing-library/react";
 
 describe("SkillSet", () => {
   it("renders skill categories correctly", () => {
@@ -31,9 +31,9 @@ const assertSkillCategoriesRendering = (isBaseResolution: boolean) => {
 
   render(<SkillSet />);
 
-  skills.forEach((skill) => {
-    expect(screen.getByText(skill.category)).toBeInTheDocument();
-  });
+  for (const skill of skills) {
+    expect(screen.getByText(skill.category_name)).toBeInTheDocument();
+  }
 };
 
 /*
@@ -46,19 +46,19 @@ const assertSkillItemsRendering = (isBaseResolution: boolean) => {
 
   render(<SkillSet />);
 
-  skills.forEach((skill) => {
-    expect(screen.getByText(skill.category)).toBeInTheDocument();
+  for (const skill of skills) {
+    expect(screen.getByText(skill.category_name)).toBeInTheDocument();
 
-    skill.items.forEach((item) => {
+    for (const item of skill.items) {
       expect(screen.getByText(item.name)).toBeInTheDocument();
       expect(screen.getByAltText(item.name)).toHaveAttribute("src", item.icon);
       const yearsElements = screen.getAllByText(
         isBaseResolution ? `${item.years}y+` : `(${item.years}y+)`,
       );
       expect(yearsElements.length).toBeGreaterThan(0);
-      yearsElements.forEach((element) => {
+      for (const element of yearsElements) {
         expect(element).toBeInTheDocument();
-      });
-    });
-  });
+      }
+    }
+  }
 };

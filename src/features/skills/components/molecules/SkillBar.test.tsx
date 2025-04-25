@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import { SkillBar } from "@/features/skills/components/molecules/SkillBar";
+import { render, screen } from "@testing-library/react";
 
 describe("SkillBar", () => {
   const skill = {

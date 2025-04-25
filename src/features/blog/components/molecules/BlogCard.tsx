@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import type { Card as BlogCardProps } from "@/features/blog/types/BlogCard";
 import {
   Badge,
   Box,
@@ -12,16 +12,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import type { JSX } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
-interface BlogCardProps {
-  id: number;
-  title: string;
-  content: string;
-  tags: string[];
-  image: string;
-  alt: string;
-}
 export const BlogCard = ({
   id,
   title,
@@ -38,16 +31,17 @@ export const BlogCard = ({
           <Heading size="md">{title}</Heading>
           <Text>{content}</Text>
           <Flex wrap="wrap" gap={3}>
-            {tags.map((tag, index) => (
+            {tags.map((tag) => (
               <Badge
-                key={index}
+                key={tag.id}
                 backgroundColor="gray.600"
                 variant="solid"
                 py={0.5}
                 px={3}
                 rounded="md"
+                style={{ textTransform: "none" }}
               >
-                {tag}
+                {tag.name}
               </Badge>
             ))}
           </Flex>

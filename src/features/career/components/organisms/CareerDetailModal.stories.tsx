@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { useEffect } from "react";
 import {
   CareerDetailModal,
   type CareerDetailModalProps,

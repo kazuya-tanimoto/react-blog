@@ -342,6 +342,17 @@ vite.config.ts
   - select `automatic eslint configuration`
   - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
   - set `Run eslint --fix on save` to `true`
+  - 
+- configure Biome in JetBrains IDE:
+  - Install the "Biome" plugin from JetBrains Marketplace
+  - Open Settings > Languages & Frameworks > Biome
+  - Select "Automatic Biome configuration"
+  - Set "Run biome for files" to: `**/*.{js,jsx,ts,tsx,html,css,less,sass,scss,json}`
+  - Enable following options:
+    - Enable LSP-based code formatting
+    - Run format on save
+    - Run safe fixes on save
+  - Click Apply and OK
 
 ## setup prettier
 

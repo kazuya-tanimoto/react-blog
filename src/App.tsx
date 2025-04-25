@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import type { JSX } from "react";
 import "./App.css";
 import { Page } from "./stories/Page";
 

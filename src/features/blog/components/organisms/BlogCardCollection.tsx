@@ -1,13 +1,14 @@
-import { type JSX, Suspense, useEffect } from "react";
+import { ErrorBoundaryWrapper } from "@/components/organisms/ErrorBoundaryWrapper";
+import { BlogCard } from "@/features/blog/components/molecules/BlogCard";
+import { tags } from "@/features/blog/data/Tag.ts";
+import type { Card } from "@/features/blog/types/BlogCard";
+import { sleep } from "@/lib/sleep";
 import { Box } from "@chakra-ui/react";
 import { css } from "@emotion/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { type JSX, Suspense, useEffect } from "react";
 import Masonry from "react-masonry-css";
-import { ErrorBoundaryWrapper } from "@/components/organisms/ErrorBoundaryWrapper";
-import { BlogCard } from "@/features/blog/components/molecules/BlogCard";
-import { type Card } from "@/features/blog/types/BlogCard";
-import { sleep } from "@/lib/sleep";
 
 interface Post {
   userId: number;
@@ -57,17 +58,16 @@ const masonryStyles = css`
   }
 `;
 
-const tags = ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5"];
 const BlogCardCollectionContent = (): JSX.Element => {
   useEffect(() => {
     const handleScroll = () => {
       const elements = document.querySelectorAll(".fade-in");
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
+      for (const element of elements) {
+        const rect = element.getBoundingClientRect();
         if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          el.classList.add("visible");
+          element.classList.add("visible");
         }
-      });
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -100,8 +100,8 @@ const BlogCardCollectionContent = (): JSX.Element => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {cards.map((card, index) => (
-          <Box key={index} mx={1} my={4} className="fade-in">
+        {cards.map((card) => (
+          <Box key={card.id} mx={1} my={4} className="fade-in">
             <BlogCard {...card} />
           </Box>
         ))}

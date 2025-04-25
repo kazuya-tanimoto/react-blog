@@ -1,10 +1,10 @@
-import { type JSX, Suspense } from "react";
-import { Skeleton, Stack } from "@chakra-ui/react";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { NestedList } from "@/components/molecules/NestedList";
 import { ErrorBoundaryWrapper } from "@/components/organisms/ErrorBoundaryWrapper";
 import { sleep } from "@/lib/sleep";
+import { Skeleton, Stack } from "@chakra-ui/react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { type JSX, Suspense } from "react";
 
 interface Users {
   id: number;
@@ -43,6 +43,7 @@ const FallBack = (w: number, lineCount: number) => {
   return (
     <Stack data-testid="placeholder" w={w} spacing={4} p={4}>
       {Array.from({ length: lineCount }).map((_, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: The list is static and does not change, so using index as key is safe.
         <Skeleton key={index} h={5} w={`${60 + Math.random() * 40}%`} />
       ))}
     </Stack>

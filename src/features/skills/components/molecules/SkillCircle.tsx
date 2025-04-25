@@ -1,15 +1,14 @@
-import { type JSX } from "react";
+import type { Skill } from "@/features/skills/types/Skill";
 import {
   CircularProgress,
-  Image,
   CircularProgressLabel,
   Flex,
+  Image,
   Text,
 } from "@chakra-ui/react";
-import { type Skill } from "@/features/skills/types/Skill";
+import type { JSX } from "react";
 
 export const SkillCircle = ({ name, icon, years }: Skill): JSX.Element => {
-  // export const SkillCircle = ({ years }) => {
   const progressValue = Math.min(years, 10) * 10;
   const displayYears = years >= 10 ? "10y+" : `${years}y+`;
 

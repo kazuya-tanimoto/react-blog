@@ -1,5 +1,5 @@
-import type { JSX, ReactNode } from "react";
 import { Text, type TextProps } from "@chakra-ui/react";
+import type { JSX, ReactNode } from "react";
 
 interface Props extends TextProps {
   children: ReactNode;

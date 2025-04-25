@@ -1,5 +1,5 @@
-import type { JSX } from "react";
 import { Flex, Text } from "@chakra-ui/react";
+import type { JSX } from "react";
 
 interface Props {
   title: string;

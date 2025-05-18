@@ -42,13 +42,6 @@
 - [Component Story Format 3.0](https://storybook.js.org/blog/component-story-format-3-0/)
 - [Storybook Tutorials](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/)
 
-#### Storybook導入後のlintエラー参考
-
-- [StylelintでCSS-in-JSをlintする時にハマったこと](https://zenn.dev/cp20/articles/2844af357345cf)
-- [TypeError: Cannot read property 'stringify' of undefined (8.3.0 -> 8.4.16) · Issue #1767 · postcss/postcss](https://github.com/postcss/postcss/issues/1767)
-- [Change Request: update `strip-ansi` dependency · Issue #15218 · eslint/eslint](https://github.com/eslint/eslint/issues/15218)
-- [[Bug]: string-width dependency stops storybook from executing · Issue #22431 · storybookjs/storybook](https://github.com/storybookjs/storybook/issues/22431)
-
 #### Testing Storybook
 
 - [UI Testing Handbook | Storybook Tutorials](https://storybook.js.org/tutorials/ui-testing-handbook/)
@@ -57,7 +50,7 @@
 
 - [Storybook(v7)をVitestで再利用するとき](https://zenn.dev/pluto0004/articles/3bab7d07805cff)
 
-## create project
+## create a project
 
 - create
 
@@ -65,7 +58,7 @@
 yarn create vite react-blog --template=react-ts; react-blog
 ```
 
-- change yarn version
+- change a yarn version
 
 ## update packages with npm-check-updates (ncu)
 
@@ -129,197 +122,61 @@ yarn add -D vite-tsconfig-paths
 yarn add react-error-boundary
 ```
 
-## setup ESLint
-
-- remove `.eslintrc.cjs`
+## setup Biome
 - install plugin
-
 ```bash
-yarn add -D eslint
+yarn add --dev --exact @biomejs/biome
 ```
 
-- make config file
-
+- setup
 ```bash
-yarn eslint --init
+yarn biome init
 ```
 
-```
-$ yarn eslint --init
-You can also run this command directly using 'npm init @eslint/config'.
-Need to install the following packages:
-  @eslint/create-config
-Ok to proceed? (y) y
-? How would you like to use ESLint?
-❯ To check syntax, find problems, and enforce code style
+- update `biome.jsonc`
 
-? What type of modules does your project use?
-❯ JavaScript modules (import/export)
-
-? Which framework does your project use?
-❯ React
-
-? Does your project use TypeScript?
-› Yes
-
-? Where does your code run?
-✔ Browser
-
-? How would you like to define a style for your project?
-❯ Use a popular style guide
-
-? Which style guide do you want to follow? …
-❯ Standard: https://github.com/standard/standard
-
-? What format do you want your config file to be in?
-❯ JSON
-
-? Would you like to install them now?
-› Yes
-
-? Which package manager do you want to use?
-❯ yarn
-nstalling eslint-plugin-react@latest, eslint-config-standard-with-typescript@latest, @typescript-eslint/eslint-plugin@^x.x.x, eslint-plugin-import@^x.x.x, eslint-plugin-n@^x.x.x, eslint-plugin-promise@^x.x.x, typescript@*
-︙ 
-Successfully created .eslintrc.json file in /Users/kanae/learning/eslint
-```
-
-- install additional plugins
-
-```bash
-yarn add -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks eslint-import-resolver-typescript
-```
-
-- update `.eslintrc.json`
-
-```json
+```jsonc
 {
-  "env": {
-    "browser": true,
-    "es2022": true
+  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "organizeImports": {
+    "enabled": true,
+    "ignore": [
+      "src/dev/**/*",
+      "src/stories/**/*"
+    ]
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "standard-with-typescript",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended"
-  ],
-  "overrides": [
-  ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "tsconfigRootDir": ".",
-    "project": [
-      "./tsconfig.json"
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      "src/dev/**/*",
+      "src/stories/**/*"
     ],
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "jsx-a11y",
-    "react",
-    "react-hooks"
-  ],
-  "rules": {
-    "padding-line-between-statements": [
-      "error",
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "return"
+    "rules": {
+      // 基本ルールセット
+      "recommended": true,
+      "complexity": {
+        // 複雑度が高いコードはエラー
+        "noExcessiveCognitiveComplexity": "error",
+        // 冗長な論理式はエラー
+        "useSimplifiedLogicExpression": "error"
+      },
+      "performance": {
+        "noReExportAll": "error"
       }
-    ],
-    "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": [
-      "error"
-    ],
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      {
-        "checksVoidReturn": false
-      }
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/triple-slash-reference": [
-      "error",
-      {
-        "types": "always"
-      }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "object",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "{react, react-dom/**}",
-            "group": "builtin",
-            "position": "before"
-          },
-          {
-            "pattern": "{[A-Z]*, **/[A-Z]*}",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "./**.module.css",
-            "group": "index",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
-    "react/display-name": "off"
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
     }
+  },
+  "formatter": {
+    "enabled": true,
+    "ignore": [
+      "src/dev/**/*",
+      "src/stories/**/*"
+    ],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "formatWithErrors": true
   }
 }
-```
-
-- add `.eslintignore`
-
-```
-vite.config.ts
 ```
 
 - edit `package.json`
@@ -331,171 +188,22 @@ vite.config.ts
 -   "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 -   "preview": "vite preview"
 +   "preview": "vite preview",
-+   "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-+   "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-+   "preinstall": "npx typesync || :"
-
++   "check": "biome check {src,tests}/**/*.{js,jsx,ts,tsx,html,css,less,sass,scss}",
++   "check:ts": "tsc --noEmit",
++   "check:all": "yarn check:ts && yarn check",
++   "fix": "biome check --write {src,tests}/**/*.{js,jsx,ts,tsx,html,css,less,sass,scss}",
 ```
 
-- configure Prettier in JetbrainsIDE
-  - open `Languages & Frameworks` > `Javascript` > `Code Quarity Tool` > `ESLint`
-  - select `automatic eslint configuration`
-  - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx}`
-  - set `Run eslint --fix on save` to `true`
-  - 
 - configure Biome in JetBrains IDE:
   - Install the "Biome" plugin from JetBrains Marketplace
   - Open Settings > Languages & Frameworks > Biome
   - Select "Automatic Biome configuration"
   - Set "Run biome for files" to: `**/*.{js,jsx,ts,tsx,html,css,less,sass,scss,json}`
-  - Enable following options:
+  - Enable the following options:
     - Enable LSP-based code formatting
     - Run format on save
     - Run safe fixes on save
   - Click Apply and OK
-
-## setup prettier
-
-- install plugin
-
-```bash
-yarn add -D prettier eslint-config-prettier
-```
-
-- adjust `.eslintrc.json`
-
-```diff
-   ︙
-   "extends": [
-   ︙
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-+   "prettier"
-```
-
-- create `.prettierrc.json`
-  - use prettier default setting
-
-```json
-{}
-```
-
-- check conflict with ESLint
-
-```bash
-yarn eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'
-```
-
-- edit `package.json`
-
-```diff
-   ︙
-   "scripts": {
-   ︙
-    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-+   "pretty": "prettier --write --log-level=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
-+   "fix": "npm run --silent format; npm run --silent lint:es:fix",
-    "preinstall": "npx typesync || :"
-   },
-```
-
-- configure Prettier in JetbrainsIDE
-  - open `Languages & Frameworks` > `Javascript` > `Prettier`
-  - select `automatic prettier configuration`
-  - set `Run for the following file` to `{src,tests}/**/*.{js,ts,jsx,tsx,html,css,less,sass,scss,json,gql,graphql}`
-  - set `Run prettier on save` to `true`
-
-## setup stylelint (enable CSS in JS linting)
-
-- install plugin
-
-```bash
-yarn add -D stylelint stylelint-config-standard stylelint-order stylelint-config-recess-order postcss postcss-syntax postcss-jsx postcss-html
-``` 
-
-- create `.stylelintrc.json`
-
-```json
-{
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recess-order"
-  ],
-  "ignoreFiles": [
-    "**/node_modules/**"
-  ],
-  "plugins": [
-    "stylelint-order"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "**/*.{jsx,tsx}"
-      ],
-      "customSyntax": "postcss-jsx",
-      "rules": {
-        "value-keyword-case": null
-      }
-    },
-    {
-      "files": [
-        "**/*.html"
-      ],
-      "customSyntax": "postcss-html",
-      "rules": {
-        "value-keyword-case": null
-      }
-    }
-  ]
-}
-```
-
-- edit `package.json`
-
-```diff
-   ︙
-   "scripts": {
-   ︙
-    "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-+   "lint:style": "stylelint 'src/**/*.{html,css,less,sass,scss}'",
-+   "lint:style:fix": "stylelint --fix 'src/**/*.{html,css,less,sass,scss}'",
-+   "lint": "npm run --silent lint:style; npm run --silent lint:es",
-+   "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
-    "format": "prettier --write --loglevel=warn  'src/**/*.{js,jsx,ts,tsx,html,json,css,gql,graphql,md,yml}'",
--   "fix": "npm run --silent format; npm run --silent lint:es:fix",
-+   "fix": "npm run --silent format; npm run --silent lint:fix",
-    "preinstall": "npx typesync || :"
-   },
-```
-
-- configure Stylelint in JetbrainsIDE
-  - open `Languages & Frameworks` > `Style Sheets` > `Stylelint`
-  - set `Enable` to `true`
-  - set `Run for the following file` to `{**/*,*}.{html,css,less,sass,scss,jsx,tsx}`
-
-- configure file watcher in JetbrainsIDE(for CSS)
-  - open `Preferences` > `Tools` > `File Watchers`
-  - add new `lint-css` watcher
-  - set `Filet Type` to `css`
-  - set `Program` to `yarn`
-  - set `Arguments` to `stylelint --fix $FilePath$`
-  - set `Output paths to refresh` to None
-  - set `Working directory` to `$ProjectFileDir$`
-  - set `Advanced Options` > All Options to `false`
-  - set `Display console` to `On Error`
-  - Add the same settings for `less, sass, scss`
-
-- configure file watcher in JetbrainsIDE(for CSS in JS)
-  - open `Preferences` > `Tools` > `File Watchers`
-  - add new `lint-css-in-jsx` watcher
-  - set `Filet Type` to `React JSX`
-  - set `Program` to `yarn`
-  - set `Arguments` to `stylelint --fix $FilePath$`
-  - set `Output paths to refresh` to None
-  - set `Working directory` to `$ProjectFileDir$`
-  - set `Advanced Options` > All Options to `false`
-  - set `Display console` to `On Error`
-  - Add the same settings for `tsx`
 
 ## setup simple-git-hooks & lint-staged
 

@@ -205,53 +205,69 @@ yarn biome init
     - Run safe fixes on save
   - Click Apply and OK
 
-## setup simple-git-hooks & lint-staged
+## setup Lefthook
 
 - install plugin
 
 ```bash
-yarn add -D simple-git-hooks lint-staged
+yarn add -D lefthook
+```
+- edit `lefthook.yml`
+
+```yaml
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to the following link:
+#   https://lefthook.dev/configuration/
+#
+pre-push:
+  jobs:
+    - name: packages audit
+      tags:
+        - frontend
+        - security
+      run: yarn npm judit
+
+#     - name: gems audit
+#       tags:
+#         - backend
+#         - security
+#       run: bundle audit
+#
+pre-commit:
+  parallel: true
+  jobs:
+    - name: lint
+      run: yarn check:all {staged_files}
+
+  #     - name: rubocop
+  #       glob: "*.rb"
+  #       exclude:
+  #         - config/application.rb
+  #         - config/routes.rb
+  #       run: bundle exec rubocop --force-exclusion {all_files}
+  #
+  #     - name: govet
+  #       files: git ls-files -m
+  #       glob: "*.go"
+  #       run: go vet {files}
+  #
+  #     - script: "hello.js"
+  #       runner: node
+  #
+  #     - script: "hello.go"
+  #       runner: go run
 ```
 
 - edit `package.json`
 
 ```diff
+  "scripts": {
    ︙
-   "scripts": {
-   ︙
-+   "lint-staged": "lint-staged",
-+   "prepare": "npx simple-git-hooks || :"
-    "preinstall": "npx typesync || :"
-   },
-   ︙
-  "devDependencies": {
-   ︙
--  }
-+  },
-+  "lint-staged": {
-+    "src/**/*.{js,jsx,ts,tsx}": [
-+      "prettier --write --loglevel=warn",
-+      "eslint --fix --quiet"
-+      "stylelint --fix --quiet",
-+    ],
-+    "src/**/*.{html,css,less,sass,scss}": [
-+      "prettier --write --loglevel=warn",
-+      "stylelint --fix --quiet"
-+    ],
-+    "src/**/*.{json,gql,graphql}": [
-+      "prettier --write --loglevel=warn"
-+    ]
-+  },
-+  "simple-git-hooks": {
-+    "pre-commit": "yarn lint-staged"
-+  }
-   ︙
-```
-
-- create git hook
-
-```bash
-yarn simple-git-hooks
+-   "preinstall": "npx typesync || :"
++   "preinstall": "npx typesync || :",
++   "postinstall": "lefthook install"
+  },
 ```
 
 ## update packages

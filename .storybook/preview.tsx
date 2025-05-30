@@ -16,10 +16,10 @@ const preview: Preview = {
     (Story) => (
       <ChakraProvider>
         <QueryClientProvider client={queryClient}>
-        <Story />
+          <Story />
         </QueryClientProvider>
       </ChakraProvider>
-    )
+    ),
   ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

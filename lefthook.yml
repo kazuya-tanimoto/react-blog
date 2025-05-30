@@ -21,6 +21,7 @@
    parallel: true
    jobs:
      - name: lint
+       glob: "{src,tests}/**/*.{js,jsx,ts,tsx,html,css,less,sass,scss}"
        run: yarn check {staged_files}
 
 #     - name: rubocop

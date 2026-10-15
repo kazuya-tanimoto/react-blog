@@ -302,7 +302,7 @@ PBI なしで済ませる作業も、短命ブランチ → PR → CI 緑 → �
 
 devcontainer はボリューム名が devcontainerId（clone パス由来）で分離されるため、別 clone なら設定・認証・node_modules が衝突せず同時起動できる。新 clone の初回のみ `gh auth login`（PAT はボリュームに永続化）と `yarn install` が必要。
 
-**起票後のセルフチェック（v3.12）**：PBI を書き終えたら commit して運営者に出す前に `/pbi-review`（`.claude/skills/pbi-review`）で全軸点検し、指摘を潰してから出す。運営者側の起票レビューも同じ skill で行える。規約の本文はこの README と CLAUDE.md が正で、skill は照合手順だけを持つ（skill にだけあるルールを作らない）。
+**起票後のセルフチェック（v3.12）**：PBI を書き終えたら commit して運営者に出す前に `/kt:pbi-review`（repo 固有の軸と材料は `.claude/review/pbi-review.md`）で全軸点検し、指摘を潰してから出す。運営者側の起票レビューも同じ skill で行える。規約の本文はこの README と CLAUDE.md が正で、skill は照合手順だけを持つ（skill にだけあるルールを作らない）。
 
 ## 10. ブランチ運用
 

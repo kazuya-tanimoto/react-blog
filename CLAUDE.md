@@ -33,7 +33,7 @@
 - 記事本文に関わる作業（ドラフト作成・リライト・レビュー・部分修正）の前に docs/writing-style/profile.md を必読し、そのルールに従う
 - 執筆・リライトの**直前**に profile.md と直近公開記事 1〜2 本を読み直す。セッション前半で読んだ記憶だけで書かない
 - 本文の初稿ができた後（別プロセスのモデルが書いたものを含む）と、Claude が本文を直した後は、**ja-check スキルを必須で通し**、profile.md「避ける表現」を 1 項目ずつ照合してから運営者に出す（writing-workflow 手順 6 / 8。AI 臭が残っていない自信を持てるまで提出しない）
-- レビューは 2 回（Claude が subagent で `/article-review`。手順 7 / 9）。公開（`draft: false`）は 2 回目の後。材料に無いことの扱い（調べる → 削る → 聞く、【要確認】／【要写真】の書式と上限）は docs/writing-workflow.md「材料に無いことの扱い」節、運営者フィードバックへの対応順（回答 → 提案 → OK 後に反映）は手順 8 が正本
+- レビューは 2 回（Claude が subagent で `/kt:article-review`。手順 7 / 9）。公開（`draft: false`）は 2 回目の後。材料に無いことの扱い（調べる → 削る → 聞く、【要確認】／【要写真】の書式と上限）は docs/writing-workflow.md「材料に無いことの扱い」節、運営者フィードバックへの対応順（回答 → 提案 → OK 後に反映）は手順 8 が正本
 
 ## Code Style
 - TypeScript strict, 2-space indent, 100 char line, named exports preferred
@@ -86,7 +86,7 @@
 - Read all `## 実装ログ` from the just-completed Phase's PBIs (especially "想定外" / "学び・つまずき" 項)
 - Draft next-Phase PBIs reflecting the learnings
 - 起票する PBI の受け入れ条件には §7 の検証ゲートを入れる (ローカル / CF preview スクショ確認 + E2E/CI green 確認, テンプレ常設・非該当は `[x] …：N/A（理由）`). README §4.6 ルール 7。INDEX.md セッション開始チェックが起票漏れを機械検出する
-- 起票した PBI は commit して運営者に出す前に `/pbi-review`（`.claude/skills/pbi-review`）で全軸セルフチェックし、指摘を潰してから出す（README §9）
+- 起票した PBI は commit して運営者に出す前に `/kt:pbi-review`（repo 固有の軸と材料は `.claude/review/pbi-review.md`）で全軸セルフチェックし、指摘を潰してから出す（README §9）
 - Append to INDEX.md as Status: NotStarted
 - Commit on the working branch (docs-only)
 
@@ -125,3 +125,4 @@ Stop hook（PBI Done 宣言の検証ゲート監査）でレスポンスがブ�
 - docs/writing-workflow.md    Article writing process（Phase 1a 冒頭で作成）
 - docs/operation-manual.md    運営者向け運用マニュアル（シーン別フレーズ / リカバリー / トラブルシューティング）
 - docs/devcontainer-plan.md   devcontainer 環境の設計・実施手順（PHASE1B-016）
+- .claude/review/             `/kt:article-review` / `/kt:pbi-review` が読む repo 固有の軸と材料。skill 本体は個人 plugin `kt`（kazuya-tanimoto/claude-plugins。母艦で `/plugin install kt@kazuya-tanimoto` 済みが前提、コンテナには container-sync が入れる）

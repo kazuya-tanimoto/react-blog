@@ -17,11 +17,11 @@ byte-lark.com ブログ記事の作成フロー。Claude Code（または claude
   ↓
 [6] Claude が材料を用意 → 別プロセスのモデルが構成から本文を書く（当面は Gemini Flash）→ Claude が検査（draft: true）
   ↓
-[7] Claude が /article-review（1 回目）→ 指摘を自分で反映（事実の指摘は調べる → 削る → 聞く）、「公開可能」まで繰り返す
+[7] Claude が /kt:article-review（1 回目）→ 指摘を自分で反映（事実の指摘は調べる → 削る → 聞く）、「公開可能」まで繰り返す
   ↓
 [8] 運営者がレビュー・リライト
   ↓
-[9] /article-review（2 回目）→ Claude が仕分け（直す／出さない／聞く）→ 反映
+[9] /kt:article-review（2 回目）→ Claude が仕分け（直す／出さない／聞く）→ 反映
   ↓
 [10] yarn fonts でフォントを作り直す → draft: false に変更
   ↓
@@ -116,9 +116,9 @@ Claude は回答を見て、浅い・具体性が足りない箇所に追加質�
    - Gemini を呼ぶ `agy`（Antigravity CLI）が認証エラーで止まったら、運営者に `ccdsh` でコンテナに入って `agy` を起動し、ログインし直してもらう。済んだら手順 3 をやり直す
    - agy が使えないとき（例：母艦の sandbox の中では agy は起動できない。`~/.claude/bin/gemini-draft.sh` のコメント）は、従来どおり記事のセッションの Claude が本文を書く。このときも執筆の直前に profile.md と直近公開記事を読み直す。書くときは、別プロセスのモデルに渡しているのと同じ natural-japanese スキルの執筆時の決まり（12 条）にも従い、書いた後は手順 7 の決まりと検査を通す
 
-## 7. レビュー 1 回目（/article-review）
+## 7. レビュー 1 回目（/kt:article-review）
 
-ドラフトを運営者に渡す前に、Claude が `.claude/skills/article-review`（`/article-review`）で全軸レビューする。
+ドラフトを運営者に渡す前に、Claude が `/kt:article-review`（repo 固有の軸と材料は `.claude/review/article-review.md`）で全軸レビューする。
 
 - subagent（general-purpose）で実行する。ドラフトを書いたコンテキストでの自己レビューは自分の文に甘くなるため
 - 指摘はドラフト担当が自分で反映し、総評が「公開可能」になるまでレビュー → 反映を繰り返す。運営者の承認は取らない
@@ -139,9 +139,9 @@ Claude は回答を見て、浅い・具体性が足りない箇所に追加質�
 4. OK が出た項目だけを反映する。OK の無い項目・回答が保留の項目には手を付けない
 5. 承認された文面から変える必要が出たら、再提案して OK を取り直す。軽微でも黙って変えない
 
-## 9. レビュー 2 回目（/article-review）
+## 9. レビュー 2 回目（/kt:article-review）
 
-公開前に `/article-review` でもう一度全軸レビューする。運営者のリライトで入った誤字・表記揺れ・事実のずれを拾う回。
+公開前に `/kt:article-review` でもう一度全軸レビューする。運営者のリライトで入った誤字・表記揺れ・事実のずれを拾う回。
 
 レビュー担当（subagent）には、本文が運営者のリライト済みであることと、それまでに運営者と確定した事項を渡す。
 

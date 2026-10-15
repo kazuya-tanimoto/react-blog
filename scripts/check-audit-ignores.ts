@@ -17,13 +17,7 @@ export type IgnoredAdvisory = {
 };
 
 /** audit で除外している勧告。quality.yml の `--ignore` と 1 対 1 に保つ */
-export const IGNORED: IgnoredAdvisory[] = [
-  {
-    id: "1240991",
-    ghsa: "GHSA-ch52-4w7c-c8xp",
-    package: "http-cache-semantics",
-  },
-];
+export const IGNORED: IgnoredAdvisory[] = [];
 
 /** GitHub の勧告 API（GET /advisories/{ghsa_id}）の応答のうち、使う項目だけ */
 export type Advisory = {
